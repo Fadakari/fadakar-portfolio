@@ -24,45 +24,36 @@ const scrollToSection = (sectionId: string) => {
 const refreshScrollAnimations = async () => {
   await nextTick()
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  gsap.killTweensOf('.anim-stagger')
 
-  document.querySelectorAll<HTMLElement>('section').forEach((section) => {
-    const elements = Array.from(section.querySelectorAll<HTMLElement>('.anim-stagger'))
-    if (!elements.length) return
-
-    gsap.set(elements, { opacity: 0, scale: 0.8, y: 40 })
-
-    const timeline = gsap.timeline({
+  document.querySelectorAll<HTMLElement>('.anim-stagger').forEach((el) => {
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: el,
         start: 'top 85%',
         end: 'bottom 25%',
         scrub: window.innerWidth < 768 ? 0.4 : 0.8,
       },
     })
 
-    timeline
-      .to(elements, {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 1,
-        ease: 'none',
-        stagger: window.innerWidth < 768 ? 0.12 : 0.18,
-      })
-      .to(elements, {
+    tl.fromTo(
+      el,
+      { opacity: 0, scale: 0.8, y: 40 },
+      { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'none' },
+    )
+      .to(el, {
         opacity: 1,
         scale: 1.03,
         y: -10,
         duration: 1.5,
         ease: 'none',
       })
-      .to(elements, {
+      .to(el, {
         opacity: 0,
         scale: 0.8,
         y: -50,
         duration: 1,
         ease: 'none',
-        stagger: window.innerWidth < 768 ? 0.08 : 0.12,
       })
   })
 
@@ -98,10 +89,14 @@ onMounted(async () => {
 onUnmounted(() => {
   window.removeEventListener('scroll', updateCurrentSection)
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+  gsap.killTweensOf('.anim-stagger')
 })
 
 watch(locale, async () => {
-  await refreshScrollAnimations()
+  await nextTick()
+  setTimeout(() => {
+    refreshScrollAnimations()
+  }, 100)
 })
 
 const seo = computed(() => locale.value === 'fa'
@@ -138,17 +133,11 @@ useSeoMeta({ title: () => seo.value.title, description: () => seo.value.descript
   --card-bg-color: #1e293b;
 }
 
-html[dir="rtl"],
-html[dir="rtl"] body,
-html[dir="rtl"] * {
+html[dir="rtl"], html[dir="rtl"] body, html[dir="rtl"] * {
   font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif !important;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background-color: var(--bg-color);
@@ -157,9 +146,7 @@ body {
   line-height: 1.6;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 @media print {
   html, body {
@@ -170,7 +157,6 @@ html {
     height: auto !important;
     overflow: visible !important;
   }
-
   main > section {
     display: block !important;
     height: auto !important;
@@ -185,12 +171,7 @@ html {
     print-color-adjust: exact !important;
     background-color: #000000 !important;
   }
-
-  main > section:first-of-type {
-    page-break-before: auto !important;
-    break-before: auto !important;
-  }
-
+  main > section:first-of-type { page-break-before: auto !important; break-before: auto !important; }
   *, .anim-stagger, .project-card, .card-image-container, .card-image, .skill-card {
     opacity: 1 !important;
     transform: none !important;
@@ -198,54 +179,14 @@ html {
     transition: none !important;
     animation: none !important;
   }
-
-  .card-bg-image {
-    position: static !important;
-    display: block !important;
-    height: 200px !important;
-    width: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .card-gradient-overlay, .view-details-btn {
-    display: none !important;
-  }
-
-  .card-content-overlay {
-    position: static !important;
-    display: block !important;
-    padding: 1rem 0 !important;
-  }
-
-  .main-header,
-  .mobile-menu-panel,
-  .gradient-bg,
-  .contact-scroll-indicator,
-  .pdf-btn,
-  .image-overlay {
-    display: none !important;
-  }
-
-  h1, h2, h3, p, span, div, a {
-    color: #e2e8f0 !important;
-  }
-
-  .hero-name, .section-title {
-    color: var(--primary-color) !important;
-  }
-
-  .tag {
-    background-color: rgba(56, 189, 248, 0.15) !important;
-    color: #38bdf8 !important;
-    border: 1px solid rgba(56, 189, 248, 0.3) !important;
-  }
-
-  #app-preloader {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    z-index: -1 !important;
-  }
+  .card-bg-image { position: static !important; display: block !important; height: 200px !important; width: 100% !important; object-fit: cover !important; }
+  .card-gradient-overlay, .view-details-btn { display: none !important; }
+  .card-content-overlay { position: static !important; display: block !important; padding: 1rem 0 !important; }
+  .main-header, .mobile-menu-panel, .gradient-bg, .contact-scroll-indicator, .pdf-btn, .image-overlay { display: none !important; }
+  h1, h2, h3, p, span, div, a { color: #e2e8f0 !important; }
+  .hero-name, .section-title { color: var(--primary-color) !important; }
+  .tag { background-color: rgba(56, 189, 248, 0.15) !important; color: #38bdf8 !important; border: 1px solid rgba(56, 189, 248, 0.3) !important; }
+  #app-preloader { display: none !important; opacity: 0 !important; visibility: hidden !important; z-index: -1 !important; }
 }
 
 .project-card, .skill-card {
@@ -256,7 +197,5 @@ html {
   will-change: transform, opacity;
 }
 
-section {
-  contain: paint layout;
-}
+section { contain: paint layout; }
 </style>
