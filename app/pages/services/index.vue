@@ -111,7 +111,7 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
         <div class="hero-grid"></div>
         <div class="hero-copy">
           <span class="eyebrow">{{ copy.eyebrow }}</span>
-          <h1>{{ copy.title }}</h1>
+          <h1 class="hero-text">{{ copy.title }}</h1>
           <p>{{ copy.intro }}</p>
           <div class="hero-actions">
             <a class="primary-button" :href="telegramUrl" target="_blank" rel="noopener noreferrer">{{ copy.primaryCta }} <span>↗</span></a>
@@ -219,7 +219,7 @@ main { position: relative; z-index: 1; }
 .services-hero { min-height: 100svh; max-width: 1440px; margin: auto; padding: 9rem 6vw 6rem; display: grid; grid-template-columns: 1.05fr .95fr; gap: 5rem; align-items: center; position: relative; }
 .hero-grid { position: absolute; width: 50%; height: 70%; right: 0; top: 20%; background: radial-gradient(circle at center, rgba(138,43,226,.12), transparent 62%); pointer-events: none; }
 .hero-copy { position: relative; z-index: 2; max-width: 760px; }.eyebrow { color: #8a2be2; font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; display: inline-block; margin-bottom: 1.5rem; }
-h1 { font-size: clamp(3rem, 6vw, 6.4rem); line-height: .98; letter-spacing: -.055em; white-space: pre-line; margin: 0 0 2rem; color: #fff; max-width: 900px; }
+h1 { font-size: clamp(3rem, 6vw, 3.5rem); line-height: .98; letter-spacing: -.055em; white-space: pre-line; margin: 0 0 2rem; color: #fff; max-width: 900px; }
 .hero-copy > p { max-width: 680px; color: #a7a7b4; font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.9; margin-bottom: 2.3rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }.primary-button,.secondary-button { display: inline-flex; align-items: center; gap: .8rem; padding: .9rem 1.25rem; border-radius: .65rem; text-decoration: none; font-weight: 700; transition: .25s ease; }.primary-button { background: #fff; color: #070709; }.primary-button:hover { transform: translateY(-3px); background: #8a2be2; color: #fff; }.secondary-button { border: 1px solid rgba(255,255,255,.14); color: #eee; }.secondary-button:hover { background: rgba(255,255,255,.06); transform: translateY(-3px); }
 .hero-proof { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 2.4rem; color: #858592; font-size: .78rem; }.hero-proof span { display: inline-flex; gap: .45rem; align-items: center; }.hero-proof i { width: 5px; height: 5px; border-radius: 50%; background: #8a2be2; }
