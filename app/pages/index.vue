@@ -102,9 +102,53 @@ useSeoMeta({
 </template>
 
 <style>
-html, body { overflow: hidden; height: 100%; margin: 0; }
-.home-page { width: 100%; height: 100vh; position: relative; overflow: hidden; }
-.home-main { width: 100%; height: 100vh; position: relative; overflow: hidden; }
-.home-main > section { width:100%; height:100vh; position:absolute; top:0; left:0; display:flex; justify-content:center; align-items:center; visibility:hidden; opacity:0; }
-.section-content { width:100%; }
+:root {
+  color-scheme: dark;
+  background: #09090f;
+  color: #f4f4f5;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html, body, #__nuxt {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  background: #09090f;
+}
+
+body {
+  color: #f4f4f5;
+}
+
+.home-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #09090f;
+}
+
+.home-main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-main > section {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.section-content {
+  width: 100%;
+}
 </style>
