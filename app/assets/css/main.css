@@ -66,7 +66,7 @@ html {
   }
 
   /* ۳. حل مشکل مخفی بودن عکس‌ها و کارت‌های پروژه */
-  *, ., .project-card, .card-image-container, .card-image, .skill-card {
+  *, .anim-stagger, .project-card, .card-image-container, .card-image, .skill-card {
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
