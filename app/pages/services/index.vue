@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+const currentSectionIndex = ref(0)
 const { locale, isRtl } = useLocale()
+const scrollToSection = (sectionId: string) => {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 const copy = computed(() => locale.value === 'fa' ? {
   eyebrow: 'خدمات طراحی و توسعه وب',
@@ -91,12 +95,13 @@ const copy = computed(() => locale.value === 'fa' ? {
     ['05', 'Technical SEO', 'URLs, metadata, headings, structured data, performance, crawlability and technical SEO foundations are considered.'],
     ['06', 'Launch & support', 'The site is deployed, checked and supported for three months after launch.'],
   ]
-}
+});
 
-const telegramUrl = 'https://t.me/THE_FADAKAR'
+const telegramUrl = 'https://t.me/THE_FADAKAR';
 </script>
 
 <template>
+  <Header :current-section-index="currentSectionIndex" :scroll-to-section="scrollToSection" />
   <div class="services-page" :dir="isRtl ? 'rtl' : 'ltr'">
     <div class="services-orb orb-one"></div>
     <div class="services-orb orb-two"></div>
