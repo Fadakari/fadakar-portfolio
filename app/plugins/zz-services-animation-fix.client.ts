@@ -8,7 +8,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     style.textContent = `
       /* Sections themselves stay static; their contents reveal independently. */
       .services-page main > section.services-enhance-reveal{opacity:1!important;transform:none!important;transition:none!important}
-      .services-independent-reveal{opacity:0;transform:translateY(32px) scale(.985);transition:opacity .75s cubic-bezier(.23,1,.32,1),transform .75s cubic-bezier(.23,1,.32,1)}
+      .services-independent-reveal{opacity:0;transition:opacity .75s cubic-bezier(.23,1,.32,1),transform .75s cubic-bezier(.23,1,.32,1)}
       .services-independent-reveal.is-visible{opacity:1;transform:none}
       @media (prefers-reduced-motion:reduce){.services-independent-reveal{opacity:1;transform:none;transition:none}}
     `
@@ -27,7 +27,6 @@ export default defineNuxtPlugin((nuxtApp) => {
       '.services-hero .hero-visual',
       '.trust-grid > div',
       '.services-list-section .section-heading',
-      '.services-list-section .service-card',
       '.method-section .section-heading',
       '.method-section .method-card',
       '.support-section .support-visual',

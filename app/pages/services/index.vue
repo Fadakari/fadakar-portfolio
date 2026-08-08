@@ -50,6 +50,22 @@ const copy = computed(() => locale.value === 'fa' ? {
     { title: 'سایت گردشگری و هواپیمایی', short: 'برای آژانس‌ها، تورها، خدمات سفر و مجموعه‌های فعال در صنعت گردشگری.', detail: 'معرفی مقصد و خدمات، جست‌وجو و فرم‌های درخواست، صفحات فرود کمپین و معماری قابل توسعه برای امکانات بیشتر.' },
     { title: 'پلتفرم و وب‌اپلیکیشن اختصاصی', short: 'برای ایده‌هایی که دیگر یک سایت معمولی نیستند و منطق اختصاصی دارند.', detail: 'داشبورد، حساب کاربری، نقش‌ها، فرایندهای اختصاصی، API و زیرساختی که بر اساس نیاز واقعی محصول طراحی می‌شود.' },
     { title: 'بازطراحی و بهینه‌سازی سایت', short: 'اگر سایت فعلی دارید اما ظاهر، سرعت، سئو یا تجربه کاربری آن جواب نمی‌دهد.', detail: 'بررسی ساختار فعلی، شناسایی نقاط ضعف و بازطراحی مرحله‌ای بدون اینکه صرفاً ظاهر سایت را عوض کنیم و مشکل اصلی باقی بماند.' },
+    { title: 'سایت املاک و مستغلات', short: 'برای مشاوران املاک، دفاتر و مجموعه‌های فعال در خرید، فروش و اجاره.', detail: 'نمایش فایل‌ها، جست‌وجو و فیلتر، صفحات منطقه و ملک، فرم درخواست و ساختاری مناسب برای جذب مشتری از گوگل.' },
+    { title: 'سایت آموزشی و دوره آنلاین', short: 'برای مدرس‌ها، آموزشگاه‌ها، آکادمی‌ها و کسب‌وکارهای آموزشی.', detail: 'معرفی دوره‌ها، مدرس‌ها، محتوای آموزشی، ثبت‌نام و معماری قابل توسعه برای امکانات آموزشی بیشتر.' },
+    { title: 'سایت رسانه و مجله', short: 'برای خبر، محتوای تخصصی، مجله آنلاین و رسانه‌های موضوعی.', detail: 'ساختار دسته‌بندی و مقاله، جست‌وجو، آرشیو، صفحات نویسندگان و پایه فنی مناسب برای رشد محتوایی و سئو.' },
+    { title: 'سایت استارتاپ و SaaS', short: 'برای محصولاتی که باید هم‌زمان ارزش محصول، قابلیت‌ها و مسیر تبدیل را معرفی کنند.', detail: 'صفحات محصول، ویژگی‌ها، قیمت‌گذاری، مستندات، صفحات فرود و ساختاری که برای رشد محصول آماده باشد.' },
+    {
+      "title": "وب‌سایت رستوران و کافه",
+      "short": "منوی آنلاین، رزرو، معرفی شعب و تجربه‌ای حرفه‌ای برای مشتریان.",
+      "detail": "طراحی سریع و واکنش‌گرا با منوی دیجیتال، معرفی غذاها، اطلاعات شعب، رزرو و اتصال به شبکه‌های اجتماعی.",
+      "accent": "#f59e0b"
+    },
+    {
+      "title": "وب‌سایت باشگاه و مجموعه ورزشی",
+      "short": "معرفی خدمات، برنامه‌ها، مربیان و جذب و مدیریت بهتر مشتریان.",
+      "detail": "ساخت وب‌سایت حرفه‌ای برای باشگاه‌های ورزشی، مربیان و مجموعه‌های تناسب اندام با معرفی کلاس‌ها، برنامه‌ها، مربیان و امکانات.",
+      "accent": "#22c55e"
+    }
   ],
   principles: [
     ['01', 'نیازسنجی', 'اول مشخص می‌کنیم سایت دقیقاً قرار است چه مشکلی را حل کند و مشتری چه مسیری را طی کند.'],
@@ -86,6 +102,10 @@ const copy = computed(() => locale.value === 'fa' ? {
     { title: 'Travel & aviation website', short: 'For agencies, tours, travel services and aviation businesses.', detail: 'Destinations, services, inquiry flows, campaign landing pages and an architecture ready for future features.' },
     { title: 'Custom web platform', short: 'When the idea is no longer just a conventional website and needs custom logic.', detail: 'Dashboards, accounts, roles, custom workflows, APIs and infrastructure designed around the product.' },
     { title: 'Redesign & optimization', short: 'For existing websites that need better design, speed, SEO or UX.', detail: 'Audit, weak-point discovery and a staged redesign that fixes the underlying problems—not just the visuals.' },
+    { title: 'Real Estate Website', short: 'For agents, offices and businesses in property sales, rentals and real estate.', detail: 'Listings, search and filters, property and area pages, inquiry forms and a structure built for local search.' },
+    { title: 'Education & Online Courses', short: 'For teachers, academies, training centers and education businesses.', detail: 'Courses, instructors, learning content, registration flows and an architecture ready for future education features.' },
+    { title: 'Media & Magazine Website', short: 'For news, specialist content, online magazines and niche media.', detail: 'Categories, articles, search, archives, author pages and a technical foundation built for content growth and SEO.' },
+    { title: 'Startup & SaaS Website', short: 'For products that need to explain value, capabilities and conversion paths clearly.', detail: 'Product pages, features, pricing, documentation, landing pages and a structure ready for product growth.' },
   ],
   principles: [
     ['01', 'Discovery', 'We define the actual problem the website must solve and the path the customer should take.'],
@@ -211,9 +231,21 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
 </template>
 
 <style scoped>
-.services-page { min-height: 100vh; background: #050507; color: #e8e8ed; overflow: hidden; position: relative; }
+.services-page { min-height: 100vh;
+  min-height: 100svh;
+ background: #050507; color: #e8e8ed; overflow: hidden; position: relative; }
 .services-page::before { content: ''; position: fixed; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 70px 70px; mask-image: linear-gradient(to bottom, black, transparent 70%); z-index: 0; }
-.services-orb { position: fixed; width: 35vw; height: 35vw; border-radius: 50%; filter: blur(100px); opacity: .12; pointer-events: none; z-index: 0; background: #7c3aed; }
+.services-orb {
+  position: absolute;
+  width: clamp(280px, 35vw, 600px);
+  height: clamp(280px, 35vw, 600px);
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .12;
+  pointer-events: none;
+  z-index: 0;
+  background: #7c3aed;
+}
 .orb-one { top: 5%; right: -15%; }.orb-two { top: 55%; left: -20%; background: #0ea5e9; }
 main { position: relative; z-index: 1; }
 .services-hero { min-height: 100svh; max-width: 1440px; margin: auto; padding: 9rem 6vw 6rem; display: grid; grid-template-columns: 1.05fr .95fr; gap: 5rem; align-items: center; position: relative; }
@@ -232,5 +264,22 @@ h1 { font-size: clamp(3rem, 6vw, 3.5rem); line-height: .98; letter-spacing: -.05
 .faq-section { border-top:1px solid rgba(255,255,255,.08); padding-bottom:10rem; }.faq-list { border-top:1px solid rgba(255,255,255,.1); }.faq-list details { border-bottom:1px solid rgba(255,255,255,.1); padding:0; }.faq-list summary { list-style:none; display:grid; grid-template-columns:50px 1fr 30px; align-items:center; gap:1rem; padding:1.5rem 0; cursor:pointer; color:#eee; font-size:1.05rem; }.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{color:#8a2be2;font-size:.7rem}.faq-list summary b{font-size:1.4rem;font-weight:400;color:#777}.faq-list details[open] summary b{transform:rotate(45deg)}.faq-list details p { color:#7e7e8b; line-height:1.9; max-width:800px; padding:0 0 1.8rem 66px; }
 :dir(rtl) .service-cta span,:dir(rtl) .primary-button span { transform:scaleX(-1); }.services-page a:focus-visible,.services-page summary:focus-visible { outline:2px solid #8a2be2; outline-offset:4px; }
 @media (max-width: 980px){.services-hero{grid-template-columns:1fr;min-height:auto;padding-top:9rem}.hero-visual{min-height:430px}.services-grid{grid-template-columns:repeat(2,1fr)}.method-grid{grid-template-columns:repeat(2,1fr)}.method-card:nth-child(3n+2),.method-card:nth-child(3n){padding-left:0;border-left:0}.method-card:nth-child(even){padding-left:2rem;border-left:1px solid rgba(255,255,255,.1)}.support-section{grid-template-columns:1fr}.support-visual{display:none}.custom-card{grid-template-columns:1fr}.custom-visual{display:none}}
-@media (max-width: 640px){.services-hero,.trust-section,.services-list-section,.method-section,.support-section,.faq-section{padding-left:1.25rem;padding-right:1.25rem}.services-hero{padding-top:8rem}.services-hero h1{font-size:clamp(2.6rem,12vw,4rem)}.hero-visual{min-height:330px;margin-top:1rem}.visual-window{transform:none}.visual-content{padding:35px 25px}.visual-cards span{height:70px}.floating-badge{font-size:.45rem}.badge-top{right:0}.badge-bottom{left:0}.trust-grid{grid-template-columns:1fr;gap:2rem}.services-grid,.method-grid{grid-template-columns:1fr}.service-card{min-height:370px}.method-card,.method-card:nth-child(even){padding:1.8rem 0;border-left:0}.custom-section{padding-left:1.25rem;padding-right:1.25rem}.custom-card{padding:2rem 1.3rem}.faq-list summary{grid-template-columns:35px 1fr 20px;font-size:.95rem}.faq-list details p{padding-left:0}.hero-proof{gap:.7rem}.hero-proof span{font-size:.7rem}}
+@media (max-width: 640px){.services-hero,.trust-section,.services-list-section,.method-section,.support-section,.faq-section{padding-left:1.25rem;padding-right:1.25rem}.services-hero{padding-top:8rem}.services-hero h1{font-size:clamp(2.6rem,12vw,4rem)}.hero-visual{min-height:330px;margin-top:1rem}.visual-window{transform:none}.visual-content{padding:35px 25px}.visual-cards span{height:70px}.floating-badge{font-size:.45rem}.badge-top{right:0}.badge-bottom{left:0}.trust-grid{grid-template-columns:1fr;gap:2rem}.services-grid,.method-grid{grid-template-columns:1fr}.service-card{min-height:370px}.method-card,.method-card:nth-child(even){padding:1.8rem 0;border-left:0}.custom-section{padding-left:1.25rem;padding-right:1.25rem}.custom-card{padding:2rem 1.3rem}.faq-list summary{grid-template-columns:35px 1fr 20px;font-size:.95rem}.faq-list details p{padding-left:0}.hero-proof{gap:.7rem}.hero-proof span{font-size:.7rem}
+  .services-orb {
+    width: 280px;
+    height: 280px;
+    filter: blur(80px);
+    opacity: .1;
+  }
+
+  .orb-one {
+    top: 8%;
+    right: -120px;
+  }
+
+  .orb-two {
+    top: 55%;
+    left: -120px;
+  }
+}
 </style>

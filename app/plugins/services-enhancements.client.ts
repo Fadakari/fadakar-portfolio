@@ -3,16 +3,10 @@ export default defineNuxtPlugin(() => {
 
   const serviceAdditions = {
     fa: [
-      { title: 'سایت املاک و مستغلات', short: 'برای مشاوران املاک، دفاتر و مجموعه‌های فعال در خرید، فروش و اجاره.', detail: 'نمایش فایل‌ها، جست‌وجو و فیلتر، صفحات منطقه و ملک، فرم درخواست و ساختاری مناسب برای جذب مشتری از گوگل.' },
-      { title: 'سایت آموزشی و دوره آنلاین', short: 'برای مدرس‌ها، آموزشگاه‌ها، آکادمی‌ها و کسب‌وکارهای آموزشی.', detail: 'معرفی دوره‌ها، مدرس‌ها، محتوای آموزشی، ثبت‌نام و معماری قابل توسعه برای امکانات آموزشی بیشتر.' },
-      { title: 'سایت رسانه و مجله', short: 'برای خبر، محتوای تخصصی، مجله آنلاین و رسانه‌های موضوعی.', detail: 'ساختار دسته‌بندی و مقاله، جست‌وجو، آرشیو، صفحات نویسندگان و پایه فنی مناسب برای رشد محتوایی و سئو.' },
-      { title: 'سایت استارتاپ و SaaS', short: 'برای محصولاتی که باید هم‌زمان ارزش محصول، قابلیت‌ها و مسیر تبدیل را معرفی کنند.', detail: 'صفحات محصول، ویژگی‌ها، قیمت‌گذاری، مستندات، صفحات فرود و ساختاری که برای رشد محصول آماده باشد.' },
+      
     ],
     en: [
-      { title: 'Real Estate Website', short: 'For agents, offices and businesses in property sales, rentals and real estate.', detail: 'Listings, search and filters, property and area pages, inquiry forms and a structure built for local search.' },
-      { title: 'Education & Online Courses', short: 'For teachers, academies, training centers and education businesses.', detail: 'Courses, instructors, learning content, registration flows and an architecture ready for future education features.' },
-      { title: 'Media & Magazine Website', short: 'For news, specialist content, online magazines and niche media.', detail: 'Categories, articles, search, archives, author pages and a technical foundation built for content growth and SEO.' },
-      { title: 'Startup & SaaS Website', short: 'For products that need to explain value, capabilities and conversion paths clearly.', detail: 'Product pages, features, pricing, documentation, landing pages and a structure ready for product growth.' },
+      
     ],
   }
 
@@ -51,14 +45,20 @@ export default defineNuxtPlugin(() => {
       .services-content-reveal.is-visible{opacity:1;transform:none}
 
       /* Dynamically inserted cards need the same global styling as Vue-scoped cards. */
-      .services-page .service-card{--service-accent:#8a2be2;--service-accent-soft:rgba(138,43,226,.12);position:relative;overflow:hidden;transition:background .35s,border-color .35s,box-shadow .35s,transform .35s}
-      .services-page .service-card::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--mx,50%) var(--my,35%),var(--service-accent-soft),transparent 42%);transition:opacity .35s}
+      .services-page .service-card{--service-accent:#8a2be2;--service-accent-soft:rgba(138,43,226,.12);position:relative;overflow:hidden;transition:background .35s,border-color .35s,box-shadow .35s;transform:none;}
+      .services-page .service-card::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:1;background:radial-gradient(circle at var(--mx,50%) var(--my,35%),var(--service-accent-soft),transparent 42%);transition:opacity .35s}
       .services-page .service-card:hover::before{opacity:1}
       .services-page .service-card:hover{background:linear-gradient(145deg,var(--service-accent-soft),#0e0e13);box-shadow:0 20px 45px rgba(0,0,0,.28),0 0 0 1px color-mix(in srgb,var(--service-accent) 20%,transparent);transform:translateY(-5px)}
       .services-page .service-card .service-icon{border-color:color-mix(in srgb,var(--service-accent) 55%,transparent);transition:border-color .35s,box-shadow .35s,transform .5s cubic-bezier(.23,1,.32,1)}
       .services-page .service-card .service-icon span{background:var(--service-accent);animation:serviceIconFloat 2.8s ease-in-out infinite}
-      .services-page .service-card .service-icon span:nth-child(2){background:color-mix(in srgb,var(--service-accent) 65%,#38bdf8);animation-delay:.12s}
-      .services-page .service-card .service-icon span:nth-child(3){animation-delay:.24s}
+      .services-page .service-card .service-icon span:nth-child(2) {
+        background: color-mix(in srgb, var(--service-accent) 65%, #38bdf8);
+        animation-delay: .12s;
+      }
+        
+      .services-page .service-card .service-icon span:nth-child(3) {
+        animation-delay: .24s;
+      }
       .services-page .service-card:hover .service-icon{transform:rotate(45deg) scale(1.08);box-shadow:0 0 28px var(--service-accent-soft)}
       .services-page .service-card:hover .service-cta span{transform:translate(3px,-3px)}
       .services-page .service-cta span{display:inline-block;transition:transform .25s ease}
