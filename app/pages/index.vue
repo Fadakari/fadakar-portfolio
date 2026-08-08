@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { onMounted, onUnmounted, watch, nextTick, ref, computed } from 'vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from '~/components/Header.vue'
 import AnimatedGradientBackground from '~/components/AnimatedGradientBackground.vue'
 import HeroSection from '~/components/sections/HeroSection.vue'
@@ -8,92 +9,73 @@ import AboutSection from '~/components/sections/AboutSection.vue'
 import SkillsSection from '~/components/sections/SkillsSection.vue'
 import ProjectsSection from '~/components/sections/ProjectsSection.vue'
 import ContactSection from '~/components/sections/ContactSection.vue'
+import FooterSection from '~/components/sections/FooterSection.vue'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const { locale, isRtl } = useLocale()
-const sections = ref<HTMLElement[]>([])
 const currentSectionIndex = ref(0)
-let isAnimating = false
-const animationDuration = 1.2
+const sectionIds = ['hero', 'about', 'skills', 'projects', 'contact']
 
-const changeSection = (newIndex: number) => {
-  if (isAnimating || newIndex < 0 || newIndex >= sections.value.length || newIndex === currentSectionIndex.value) return
-  isAnimating = true
-  const currentSection = sections.value[currentSectionIndex.value]
-  const nextSection = sections.value[newIndex]
-  const currentElements = gsap.utils.toArray(currentSection.querySelectorAll('.anim-stagger'))
-  const nextElements = gsap.utils.toArray(nextSection.querySelectorAll('.anim-stagger'))
-  const direction = newIndex > currentSectionIndex.value ? 1 : -1
+const scrollToSection = (sectionId: string) => {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
-  const tl = gsap.timeline({
-    onComplete: () => {
-      gsap.set(currentSection, { autoAlpha: 0 })
-      gsap.set(currentElements, { clearProps: 'all' })
-      currentSectionIndex.value = newIndex
-      isAnimating = false
-    },
+const refreshScrollAnimations = async () => {
+  await nextTick()
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+  document.querySelectorAll<HTMLElement>('.anim-stagger').forEach((el) => {
+    const trigger = el.closest('section') || el
+    gsap.timeline({
+      scrollTrigger: {
+        trigger,
+        start: 'top 85%',
+        end: 'bottom 25%',
+        scrub: window.innerWidth < 768 ? 0.4 : 0.8,
+      },
+    })
+      .fromTo(el, { opacity: 0, scale: 0.8, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 1, ease: 'none' })
+      .to(el, { opacity: 1, scale: 1.03, y: -10, duration: 1.5, ease: 'none' })
+      .to(el, { opacity: 0, scale: 0.8, y: -50, duration: 1, ease: 'none' })
   })
 
-  gsap.set(nextSection, { autoAlpha: 1 })
-  tl.to(currentElements, { y: -direction * 50, autoAlpha: 0, stagger: 0.07, duration: animationDuration * 0.4, ease: 'power3.in' })
-  tl.from(nextElements, { y: direction * 50, autoAlpha: 0, stagger: 0.12, duration: animationDuration * 0.6, ease: 'power3.out' }, '-=.4')
+  ScrollTrigger.refresh()
 }
 
-const handleWheel = (event: WheelEvent) => {
-  if (isAnimating) {
-    event.preventDefault()
-    return
-  }
+const updateCurrentSection = () => {
+  const viewportCenter = window.innerHeight / 2
+  let closest = 0
+  let distance = Number.POSITIVE_INFINITY
 
-  const target = event.target as HTMLElement
-  const scrollable = target.closest('.internal-scroll')
-  const direction = event.deltaY > 0 ? 'down' : 'up'
+  sectionIds.forEach((id, index) => {
+    const section = document.getElementById(id)
+    if (!section) return
+    const rect = section.getBoundingClientRect()
+    const sectionCenter = rect.top + rect.height / 2
+    const currentDistance = Math.abs(sectionCenter - viewportCenter)
+    if (currentDistance < distance) {
+      distance = currentDistance
+      closest = index
+    }
+  })
 
-  if (scrollable) {
-    const { scrollTop, scrollHeight, clientHeight } = scrollable
-    if (direction === 'down' && scrollHeight - clientHeight - scrollTop > 1.5) return
-    if (direction === 'up' && scrollTop > 1.5) return
-  }
-
-  event.preventDefault()
-  changeSection(currentSectionIndex.value + (direction === 'down' ? 1 : -1))
+  currentSectionIndex.value = closest
 }
 
-let touchStartY = 0
-let touchTarget: HTMLElement | null = null
-
-const handleTouchStart = (event: TouchEvent) => {
-  touchStartY = event.touches[0].clientY
-  touchTarget = event.touches[0].target as HTMLElement
-}
-
-const handleTouchEnd = (event: TouchEvent) => {
-  if (isAnimating || !touchTarget) return
-  const delta = event.changedTouches[0].clientY - touchStartY
-  if (Math.abs(delta) > 50) changeSection(currentSectionIndex.value + (delta < 0 ? 1 : -1))
-  touchTarget = null
-}
-
-const handleNavigation = (event: Event) => {
-  const id = (event as CustomEvent).detail.sectionId
-  const index = sections.value.findIndex((section) => section.id === id)
-  if (index !== -1) changeSection(index)
-}
-
-onMounted(() => {
-  sections.value = gsap.utils.toArray<HTMLElement>('.home-main > section')
-  gsap.set(sections.value, { autoAlpha: 0 })
-  if (sections.value[0]) gsap.set(sections.value[0], { autoAlpha: 1 })
-  window.addEventListener('wheel', handleWheel, { passive: false })
-  window.addEventListener('touchstart', handleTouchStart, { passive: false })
-  window.addEventListener('touchend', handleTouchEnd, { passive: false })
-  window.addEventListener('navigateToSection', handleNavigation)
+onMounted(async () => {
+  await refreshScrollAnimations()
+  window.addEventListener('scroll', updateCurrentSection, { passive: true })
+  updateCurrentSection()
 })
 
 onUnmounted(() => {
-  window.removeEventListener('wheel', handleWheel)
-  window.removeEventListener('touchstart', handleTouchStart)
-  window.removeEventListener('touchend', handleTouchEnd)
-  window.removeEventListener('navigateToSection', handleNavigation)
+  window.removeEventListener('scroll', updateCurrentSection)
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+})
+
+watch(locale, async () => {
+  await refreshScrollAnimations()
 })
 
 const seo = computed(() => locale.value === 'fa'
@@ -106,7 +88,7 @@ useSeoMeta({ title: () => seo.value.title, description: () => seo.value.descript
 <template>
   <div class="home-page" :dir="isRtl ? 'rtl' : 'ltr'">
     <AnimatedGradientBackground />
-    <Header :current-section-index="currentSectionIndex" />
+    <Header :current-section-index="currentSectionIndex" :scroll-to-section="scrollToSection" />
 
     <main class="home-main">
       <HeroSection />
@@ -115,6 +97,8 @@ useSeoMeta({ title: () => seo.value.title, description: () => seo.value.descript
       <ProjectsSection />
       <ContactSection />
     </main>
+
+    <FooterSection />
   </div>
 </template>
 
@@ -131,57 +115,54 @@ useSeoMeta({ title: () => seo.value.title, description: () => seo.value.descript
 html,
 body,
 #__nuxt {
-  overflow: hidden;
-  height: 100%;
   margin: 0;
+  min-height: 100%;
   background: #09090b;
 }
 
 body {
   color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .home-page {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #09090b;
 }
 
 .home-main {
   width: 100%;
-  height: 100vh;
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home-main > section {
   width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  visibility: hidden;
-  opacity: 0;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .section-content {
   width: 100%;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-p,
-span,
-a,
-button,
-label {
-  color: inherit;
+h1, h2, h3, p, span, a, button, label { color: inherit; }
+
+@media (max-width: 768px) {
+  .section-content { padding: 3rem 1.5rem; }
 }
 </style>
