@@ -141,15 +141,6 @@ const projects = computed<Project[]>(() => [
     githubUrl: 'https://github.com/Fadakari/stock_app',
   },
   {
-    id: 'p5',
-    title: t('projects.bio_title'), 
-    description: t('projects.bio_desc'),
-    image: projectBioImage,
-    tags: ['Vue.js', 'Nuxt 3', 'GSAP', 'Tailwind'],
-    liveUrl: 'https://behzadheydari.ir/',
-    githubUrl: 'https://github.com/Fadakari/bio-site',
-  },
-  {
     id: 'p6',
     title: t('projects.steelsara_seo_title'),
     description: t('projects.steelsara_seo_desc'),
