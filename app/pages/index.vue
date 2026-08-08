@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { gsap } from 'gsap';
 import Header from '~/components/Header.vue';
 import AnimatedGradientBackground from '~/components/AnimatedGradientBackground.vue';
 import HeroSection from '~/components/sections/HeroSection.vue';
 
+const { locale, isRtl } = useLocale();
 const sections = ref<HTMLElement[]>([]);
 const currentSectionIndex = ref(0);
 let isAnimating = false;
@@ -85,14 +86,18 @@ onUnmounted(() => {
   window.removeEventListener('navigateToSection', handleNavigation);
 });
 
+const seo = computed(() => locale.value === 'fa'
+  ? { title: 'فداکار — طراحی و توسعه وب', description: 'طراحی و توسعه وب‌سایت‌های مدرن و حرفه‌ای برای کسب‌وکارها با تمرکز بر تجربه کاربری، عملکرد و سئو.' }
+  : { title: 'Fadakar — Web Design & Development', description: 'Modern, professional websites for businesses with a focus on user experience, performance and SEO.' });
+
 useSeoMeta({
-  title: 'Fadakar — طراحی و توسعه وب',
-  description: 'طراحی و توسعه وب‌سایت‌های مدرن با تمرکز بر تجربه کاربری، عملکرد و سئو.',
+  title: () => seo.value.title,
+  description: () => seo.value.description,
 });
 </script>
 
 <template>
-  <div class="home-page">
+  <div class="home-page" :dir="isRtl ? 'rtl' : 'ltr'">
     <AnimatedGradientBackground />
     <Header :current-section-index="currentSectionIndex" />
     <main class="home-main">
@@ -103,52 +108,15 @@ useSeoMeta({
 
 <style>
 :root {
-  color-scheme: dark;
-  background: #09090f;
-  color: #f4f4f5;
+  color-scheme: light;
+  background: #ffffff;
+  color: #18181b;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --primary-color: #7c3aed;
+  --text-color: #27272a;
 }
 
-html, body, #__nuxt {
-  overflow: hidden;
-  height: 100%;
-  margin: 0;
-  background: #09090f;
-}
-
-body {
-  color: #f4f4f5;
-}
-
-.home-page {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  background: #09090f;
-}
-
-.home-main {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.home-main > section {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.section-content {
-  width: 100%;
-}
+html, body, #__nuxt { overflow:hidden;height:100%;margin:0;background:#fff; }
+body { color:#18181b; }
+.home-page{width:100%;height:100vh;position:relative;overflow:hidden;background:#fff}.home-main{width:100%;height:100vh;position:relative;overflow:hidden}.home-main>section{width:100%;height:100vh;position:absolute;top:0;left:0;display:flex;justify-content:center;align-items:center;visibility:hidden;opacity:0}.section-content{width:100%}
 </style>
