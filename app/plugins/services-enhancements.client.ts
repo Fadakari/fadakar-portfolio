@@ -241,10 +241,10 @@ export default defineNuxtPlugin(() => {
     requestAnimationFrame(() => setupAnimations())
   }
 
-  const observer = new MutationObserver(() => {
+  const mutationObserver = new MutationObserver(() => {
     if (document.querySelector('.services-page .services-grid')) init()
   })
-  observer.observe(document.documentElement, { childList: true, subtree: true })
+  mutationObserver.observe(document.documentElement, { childList: true, subtree: true })
   window.addEventListener('load', init, { once: true })
   setTimeout(init, 0)
 })
