@@ -1,28 +1,21 @@
 <script setup lang="ts">
-import AnimatedGradientBackground from '../AnimatedGradientBackground.vue';
-import { ref, onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-
-const yourname = "Erfan Hoseini Fadakar";
-const yourtitle = "Full-Stack Software Engineer | Vue.js & Python Expert";
-const descriptionText = "I build scalable, high-performance web applications tailored to streamline business processes. Bridging the gap between elegant UI and robust backend logic.";
+import AnimatedGradientBackground from '../AnimatedGradientBackground.vue'
+import { gsap } from 'gsap'
 
 const scrollToContact = () => {
-  const contactSection = document.getElementById('contact');
+  const contactSection = document.getElementById('contact')
   if (contactSection) {
-    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
-};
+}
 </script>
 
 <template>
-  <section class="hero-container" id="hero" ref="heroContainerRef">
+  <section class="hero-container" id="hero">
     <div class="section-content internal-scroll">
-      <h1 class="hero-name anim-stagger" ref="name">{{ $t('hero.name') }}</h1>
-      <p class="hero-title anim-stagger" ref="title">{{ $t('hero.title') }}</p>
-      <p class="hero-description anim-stagger" ref="description">{{ $t('hero.description') }}</p>
+      <h1 class="hero-name anim-stagger">{{ $t('hero.name') }}</h1>
+      <p class="hero-title anim-stagger">{{ $t('hero.title') }}</p>
+      <p class="hero-description anim-stagger">{{ $t('hero.description') }}</p>
     </div>
 
     <div @click="scrollToContact" class="contact-scroll-indicator">
@@ -35,32 +28,41 @@ const scrollToContact = () => {
 <style scoped>
 .hero-container {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 7rem 2rem 5rem;
+}
+
+.section-content {
+  width: min(100%, 900px);
 }
 
 .hero-name {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1.15;
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
 }
 
 .hero-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.05rem, 3vw, 1.5rem);
+  line-height: 1.45;
   color: var(--text-color);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.25rem;
+  max-width: 760px;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.8;
   max-width: 600px;
   color: #94a3b8;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .contact-scroll-indicator {
@@ -86,7 +88,6 @@ const scrollToContact = () => {
   user-select: none;
 }
 
-/* یک خط عمودی مینیمال که انیمیشن رفت و برگشتی ظریفی به سمت پایین دارد */
 .indicator-line {
   width: 1px;
   height: 40px;
@@ -114,5 +115,50 @@ const scrollToContact = () => {
   0% { transform: translateY(-15px); opacity: 0; }
   50% { opacity: 1; }
   100% { transform: translateY(40px); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    min-height: 100svh;
+    padding: 6.5rem 1.25rem 6rem;
+  }
+
+  .hero-name {
+    max-width: 100%;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-title {
+    max-width: 95%;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    max-width: 92%;
+  }
+
+  .contact-scroll-indicator {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-name {
+    font-size: clamp(1.9rem, 9vw, 2.3rem);
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
 }
 </style>
