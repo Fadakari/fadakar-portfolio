@@ -2,6 +2,10 @@
 import { computed } from 'vue'
 
 const currentSectionIndex = ref(0)
+const openFaq = ref(0)
+const toggleFaq = (index: number) => {
+  openFaq.value = openFaq.value === index ? -1 : index
+}
 const { locale, isRtl } = useLocale()
 const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -223,7 +227,16 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
       <section class="faq-section">
         <div class="section-heading compact"><span class="eyebrow">FAQ / 05</span><h2>{{ copy.faqTitle }}</h2></div>
         <div class="faq-list">
-          <details v-for="(item, index) in copy.faq" :key="item[0]" :open="index === 0"><summary><span>0{{ index + 1 }}</span>{{ item[0] }}<b>+</b></summary><p>{{ item[1] }}</p></details>
+          <div v-for="(item, index) in copy.faq" :key="item[0]" class="faq-item" :class="{ 'is-open': openFaq === index }">
+            <div class="faq-summary" @click="toggleFaq(index)">
+              <span>0{{ index + 1 }}</span>{{ item[0] }}<b>+</b>
+            </div>
+            <div class="faq-content">
+              <div>
+                <p>{{ item[1] }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -261,9 +274,28 @@ h1 { font-size: clamp(3rem, 6vw, 3.5rem); line-height: .98; letter-spacing: -.05
 .method-section { border-top: 1px solid rgba(255,255,255,.08); }.method-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 1px solid rgba(255,255,255,.1); }.method-card { padding: 2rem 2rem 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }.method-card:nth-child(3n+2),.method-card:nth-child(3n) { padding-left: 2rem; border-left: 1px solid rgba(255,255,255,.1); }.method-card span { color: #8a2be2; font-size: .7rem; }.method-card h3 { color: #fff; margin: 1.8rem 0 .7rem; font-size: 1.15rem; }.method-card p { color: #777783; line-height: 1.8; font-size: .9rem; }
 .support-section { display: grid; grid-template-columns: .8fr 1.2fr; gap: 6rem; align-items: center; border-top: 1px solid rgba(255,255,255,.08); }.support-visual { height: 380px; position: relative; display: grid; place-items: center; }.support-ring { width: 230px; height: 230px; border: 1px solid rgba(138,43,226,.5); border-radius: 50%; display: grid; place-items: center; box-shadow: 0 0 80px rgba(138,43,226,.12); }.support-ring::before,.support-ring::after { content:''; position:absolute; width: 280px; height: 280px; border: 1px dashed rgba(255,255,255,.1); border-radius:50%; }.support-ring::after { width: 160px; height:160px; }.support-ring span { font-size: 4rem; color:#fff; font-weight:800; }.support-line { position:absolute; width:1px; height:100%; background:linear-gradient(transparent,rgba(138,43,226,.7),transparent); }.support-dot { position:absolute; width:9px;height:9px;border-radius:50%;background:#8a2be2; top:15%; box-shadow:0 0 20px #8a2be2; }.support-points { display:flex; flex-wrap:wrap; gap:.7rem; margin-top:2rem; }.support-points span { padding:.65rem .8rem; border:1px solid rgba(255,255,255,.1); color:#777783; font-size:.6rem; letter-spacing:.12em; }
 .custom-section { max-width:1280px; margin:auto; padding:3rem 6vw 9rem; }.custom-card { border:1px solid rgba(255,255,255,.12); background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.01)); padding:4rem; display:grid; grid-template-columns:1fr .7fr; gap:4rem; align-items:center; }.custom-copy p { max-width:650px; margin:1.5rem 0 2rem; }.custom-visual { display:grid; place-items:center; }.blueprint { width:260px;height:260px;border:1px solid rgba(56,189,248,.35); position:relative; display:grid;place-items:center; color:#38bdf8; text-align:center; box-shadow:inset 0 0 60px rgba(56,189,248,.06); }.blueprint::before,.blueprint::after { content:''; position:absolute; background:rgba(56,189,248,.25); }.blueprint::before { width:100%;height:1px; }.blueprint::after { height:100%;width:1px; }.blueprint span { position:absolute;width:10px;height:10px;border:1px solid #38bdf8; }.blueprint span:nth-child(1){top:-5px;left:-5px}.blueprint span:nth-child(2){top:-5px;right:-5px}.blueprint span:nth-child(3){bottom:-5px;left:-5px}.blueprint span:nth-child(4){bottom:-5px;right:-5px}.blueprint b { letter-spacing:.15em;font-size:1.1rem; }
-.faq-section { border-top:1px solid rgba(255,255,255,.08); padding-bottom:10rem; }.faq-list { border-top:1px solid rgba(255,255,255,.1); }.faq-list details { border-bottom:1px solid rgba(255,255,255,.1); padding:0; }.faq-list summary { list-style:none; display:grid; grid-template-columns:50px 1fr 30px; align-items:center; gap:1rem; padding:1.5rem 0; cursor:pointer; color:#eee; font-size:1.05rem; }.faq-list summary::-webkit-details-marker{display:none}.faq-list summary span{color:#8a2be2;font-size:.7rem}.faq-list summary b{font-size:1.4rem;font-weight:400;color:#777}.faq-list details[open] summary b{transform:rotate(45deg)}.faq-list details p { color:#7e7e8b; line-height:1.9; max-width:800px; padding:0 0 1.8rem 66px; }
+.faq-section { border-top:1px solid rgba(255,255,255,.08); padding-bottom:10rem; }
+.faq-list { border-top: 1px solid rgba(255,255,255,.1); }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,.1); }
+.faq-summary { display: grid; grid-template-columns: 50px 1fr 30px; align-items: center; gap: 1rem; padding: 1.5rem 0; cursor: pointer; color: #eee; font-size: 1.05rem; transition: color .25s ease; }
+.faq-summary:hover { color: #fff; }
+.faq-summary span { color: #8a2be2; font-size: .7rem; }
+.faq-summary b { font-size: 1.4rem; font-weight: 400; color: #777; transition: transform .4s cubic-bezier(.23,1,.32,1), color .25s ease; display: inline-block; }
+.faq-item.is-open .faq-summary b { transform: rotate(45deg); color: #8a2be2; }
+
+/* جادوی انیمیشن نرم با CSS Grid */
+.faq-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.23,1,.32,1); }
+.faq-item.is-open .faq-content { grid-template-rows: 1fr; }
+.faq-content > div { overflow: hidden; }
+.faq-content p { color: #7e7e8b; line-height: 1.9; max-width: 800px; padding: 0 0 1.8rem 66px; opacity: 0; transition: opacity .3s ease; margin: 0; }
+.faq-item.is-open .faq-content p { opacity: 1; transition-delay: .15s; }
 :dir(rtl) .service-cta span,:dir(rtl) .primary-button span { transform:scaleX(-1); }.services-page a:focus-visible,.services-page summary:focus-visible { outline:2px solid #8a2be2; outline-offset:4px; }
-@media (max-width: 980px){.services-hero{grid-template-columns:1fr;min-height:auto;padding-top:9rem}.hero-visual{min-height:430px}.services-grid{grid-template-columns:repeat(2,1fr)}.method-grid{grid-template-columns:repeat(2,1fr)}.method-card:nth-child(3n+2),.method-card:nth-child(3n){padding-left:0;border-left:0}.method-card:nth-child(even){padding-left:2rem;border-left:1px solid rgba(255,255,255,.1)}.support-section{grid-template-columns:1fr}.support-visual{display:none}.custom-card{grid-template-columns:1fr}.custom-visual{display:none}}
+@media (max-width: 980px){.services-hero{grid-template-columns:1fr;min-height:auto;padding-top:9rem}.hero-visual{min-height:430px}.services-grid{grid-template-columns:repeat(2,1fr)}.method-grid{grid-template-columns:repeat(2,1fr)}.method-card:nth-child(3n+2),.method-card:nth-child(3n){padding-left:0;border-left:0}.method-card:nth-child(even){padding-left:2rem;border-left:1px solid rgba(255,255,255,.1)}.support-section{grid-template-columns:1fr}.support-visual{display:none}.custom-card{grid-template-columns:1fr}.custom-visual{display:none}  
+  .hero-grid {
+    width: 100%;
+    background: radial-gradient(circle at center, rgba(138,43,226,.12), transparent 70%);
+  }
+}
 @media (max-width: 640px){.services-hero,.trust-section,.services-list-section,.method-section,.support-section,.faq-section{padding-left:1.25rem;padding-right:1.25rem}.services-hero{padding-top:8rem}.services-hero h1{font-size:clamp(2.6rem,12vw,4rem)}.hero-visual{min-height:330px;margin-top:1rem}.visual-window{transform:none}.visual-content{padding:35px 25px}.visual-cards span{height:70px}.floating-badge{font-size:.45rem}.badge-top{right:0}.badge-bottom{left:0}.trust-grid{grid-template-columns:1fr;gap:2rem}.services-grid,.method-grid{grid-template-columns:1fr}.service-card{min-height:370px}.method-card,.method-card:nth-child(even){padding:1.8rem 0;border-left:0}.custom-section{padding-left:1.25rem;padding-right:1.25rem}.custom-card{padding:2rem 1.3rem}.faq-list summary{grid-template-columns:35px 1fr 20px;font-size:.95rem}.faq-list details p{padding-left:0}.hero-proof{gap:.7rem}.hero-proof span{font-size:.7rem}
   .services-orb {
     width: 280px;

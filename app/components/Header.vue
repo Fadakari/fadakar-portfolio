@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollToPlugin)
 const { locale, setLocale } = useLocale()
 const route = useRoute()
 const router = useRouter()
-const isLangMenuOpen = ref(false)
 const isScrolled = ref(false)
 const isMobileMenuOpen = ref(false)
 
@@ -19,17 +18,18 @@ const props = defineProps<{
 }>()
 
 const labels = computed(() => locale.value === 'fa'
-  ? { home: 'خانه', about: 'درباره من', skills: 'مهارت‌ها', projects: 'نمونه‌کارها', services: 'خدمات', contact: 'تماس' }
-  : { home: 'Home', about: 'About', skills: 'Skills', projects: 'Projects', services: 'Services', contact: 'Contact' })
+  ? { home: 'خانه', about: 'درباره‌ما', skills: 'مهارت‌ها', projects: 'نمونه‌کارها', services: 'خدمات', contact: 'تماس' }
+  : { home: 'Home', about: 'about', skills: 'Skills', projects: 'Projects', services: 'Services', contact: 'Contact' })
 
 const isHome = computed(() => route.path === '/')
 
-const changeLanguage = (lang: 'fa' | 'en') => {
-  setLocale(lang)
-  isLangMenuOpen.value = false
+const toggleLanguage = () => {
+  const nextLang = locale.value === 'fa' ? 'en' : 'fa'
+  setLocale(nextLang)
+  
   if (import.meta.client) {
-    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr'
-    document.documentElement.lang = lang
+    document.documentElement.dir = nextLang === 'fa' ? 'rtl' : 'ltr'
+    document.documentElement.lang = nextLang
   }
 }
 
@@ -78,25 +78,21 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
 
       <nav class="header-right desktop-nav" :aria-label="locale === 'fa' ? 'منوی اصلی' : 'Main navigation'">
         <ul class="nav-links">
-          <li><a @click="navigateHomeSection($event, 'hero')" href="/#hero">{{ labels.home }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'about')" href="/#about">{{ labels.about }}</a></li>
+          <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
+          <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
+          <li><a @click="navigateHomeSection($event, 'about')" href="/services">{{ labels.about }}</a></li>
           <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
           <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
-          <li><a @click="navigateServices" href="/services">{{ labels.services }}</a></li>
           <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
         </ul>
       </nav>
 
-      <div class="lang-switcher-container relative">
-        <button @click="isLangMenuOpen = !isLangMenuOpen" class="lang-btn" :aria-label="locale === 'fa' ? 'تغییر زبان' : 'Change language'" :aria-expanded="isLangMenuOpen">
-          <span class="uppercase text-sm font-semibold">{{ locale }}</span>
+      <div class="lang-switcher-container">
+        <button @click="toggleLanguage" class="lang-btn" :aria-label="locale === 'fa' ? 'تغییر به انگلیسی' : 'Change to Persian'">
+          <span class="uppercase text-sm font-semibold">
+            {{ locale === 'fa' ? 'EN' : 'FA' }}
+          </span>
         </button>
-        <Transition name="fade">
-          <div v-if="isLangMenuOpen" class="lang-dropdown">
-            <button @click="changeLanguage('en')" :class="{'active-lang': locale === 'en'}">English</button>
-            <button @click="changeLanguage('fa')" :class="{'active-lang': locale === 'fa'}">فارسی</button>
-          </div>
-        </Transition>
       </div>
 
       <button class="hamburger-button" @click="toggleMobileMenu" :aria-label="isMobileMenuOpen ? (locale === 'fa' ? 'بستن منو' : 'Close menu') : (locale === 'fa' ? 'باز کردن منو' : 'Open menu')" :aria-expanded="isMobileMenuOpen">
@@ -104,27 +100,33 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
       </button>
     </div>
 
-    <div class="mobile-menu-panel">
+    
+  </header>
+  <div :class="['mobile-menu-panel', { 'menu-open': isMobileMenuOpen }]">
       <nav :aria-label="locale === 'fa' ? 'منوی موبایل' : 'Mobile navigation'">
         <ul class="mobile-nav-links">
-          <li><a @click="navigateHomeSection($event, 'hero')" href="/#hero">{{ labels.home }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'about')" href="/#about">{{ labels.about }}</a></li>
+          <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
+          <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
+          <li><a href="/services">{{ labels.about }}</a></li>
           <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
           <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
-          <li><a @click="navigateServices" href="/services">{{ labels.services }}</a></li>
           <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
         </ul>
       </nav>
     </div>
-  </header>
 </template>
 
 <style scoped>
-.main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: background-color .4s ease, backdrop-filter .4s ease, padding .4s ease; color: #e0e0e0; font-family: 'Inter', sans-serif; backdrop-filter: blur(15px); }
+.main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: background-color .4s ease, backdrop-filter .4s ease, padding .4s ease; color: #e0e0e0; font-family: 'Inter', sans-serif; backdrop-filter: blur(5px); 
+  background: #080404;
+  background: linear-gradient(180deg, rgb(8, 4, 4) 0%, rgba(0, 0, 0, 0.36) 50%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+}
 .header-content { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 4rem; transition:padding .5s cubic-bezier(.23,1,.32,1); gap:1.5rem; }
 .main-header.scrolled .header-content { padding-top:1rem; padding-bottom:1rem; }
 .main-header.deep-scrolled .header-content { padding-left:15rem; padding-right:15rem; }
-.main-header.scrolled { background-color:rgba(10,10,20,.7); backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,.3); }
+.main-header.scrolled { background-color:rgba(10, 10, 20, 0); backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0, 0, 0, 0); }
 .brand-name { font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none; letter-spacing:.05em; transition:color .3s ease; }
 .brand-name:hover { color:#8a2be2; }
 .nav-links { list-style:none; display:flex; gap:1.7rem; margin:0; padding:0; }
@@ -138,7 +140,7 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
 .main-header.menu-open .line1 { transform:translateY(8px) rotate(45deg); }.main-header.menu-open .line2 { opacity:0; }.main-header.menu-open .line3 { transform:translateY(-8px) rotate(-45deg); }
 .mobile-menu-panel { position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(10,10,20,.95); backdrop-filter:blur(15px); display:flex; justify-content:center; align-items:center; transform:translateX(100%); transition:transform .4s cubic-bezier(.23,1,.32,1); z-index:999; }
 .mobile-nav-links { list-style:none; padding:0; text-align:center; }.mobile-nav-links li { margin-bottom:2rem; }.mobile-nav-links li a { color:#fff; text-decoration:none; font-size:2rem; font-weight:600; }
-.main-header.menu-open .mobile-menu-panel { transform:translateX(0); }
+.mobile-menu-panel.menu-open { transform:translate(0, -60px); }
 .lang-switcher-container { position:relative; }.lang-btn { background:transparent; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.8); padding:.4rem .8rem; border-radius:.5rem; cursor:pointer; transition:all .3s ease; min-width:50px; }.lang-btn:hover { background:rgba(255,255,255,.05); color:#fff; }
 .lang-dropdown { position:absolute; top:120%; right:0; background:rgba(15,23,42,.9); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.1); border-radius:.5rem; display:flex; flex-direction:column; overflow:hidden; min-width:100px; box-shadow:0 10px 25px rgba(0,0,0,.5); z-index:1000; }.lang-dropdown button { background:transparent; border:none; color:#cbd5e1; padding:.75rem 1rem; text-align:left; cursor:pointer; font-family:inherit; transition:background .2s,color .2s; }.lang-dropdown button:hover { background:rgba(255,255,255,.05); color:#fff; }.lang-dropdown button.active-lang { color:#38bdf8; font-weight:600; background:rgba(56,189,248,.1); }.fade-enter-active,.fade-leave-active{transition:opacity .2s,transform .2s}.fade-enter-from,.fade-leave-to{opacity:0;transform:translateY(-5px)}
 @media(max-width:1100px){.header-content{padding-left:2rem;padding-right:2rem}.nav-links{gap:1rem}.nav-links li a{font-size:.9rem}.main-header.deep-scrolled .header-content{padding-left:2rem;padding-right:2rem}}

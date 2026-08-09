@@ -1,4 +1,4 @@
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   const styleId = 'services-enhancements-style'
 
   const serviceAdditions = {

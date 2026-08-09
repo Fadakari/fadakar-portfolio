@@ -34,7 +34,7 @@ const scrollToContact = () => {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 7rem 2rem 5rem;
+  padding: 7rem 2rem 0rem;
 }
 
 .section-content {
@@ -120,7 +120,7 @@ const scrollToContact = () => {
 @media (max-width: 768px) {
   .hero-container {
     min-height: 100svh;
-    padding: 6.5rem 1.25rem 6rem;
+    padding: 1rem 1.25rem 6rem;
   }
 
   .hero-name {
