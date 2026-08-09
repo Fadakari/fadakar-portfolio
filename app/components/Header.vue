@@ -18,8 +18,8 @@ const props = defineProps<{
 }>()
 
 const labels = computed(() => locale.value === 'fa'
-  ? { home: 'خانه', about: 'درباره‌ما', skills: 'مهارت‌ها', projects: 'نمونه‌کارها', services: 'خدمات', contact: 'تماس' }
-  : { home: 'Home', about: 'about', skills: 'Skills', projects: 'Projects', services: 'Services', contact: 'Contact' })
+  ? { home: 'خانه', about: 'مقالات', skills: 'مهارت‌ها', projects: 'نمونه‌کارها', services: 'خدمات', contact: 'تماس' }
+  : { home: 'Home', about: 'blogs', skills: 'Skills', projects: 'Projects', services: 'Services', contact: 'Contact' })
 
 const isHome = computed(() => route.path === '/')
 
@@ -80,7 +80,7 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
         <ul class="nav-links">
           <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
           <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
-          <li><a @click="navigateHomeSection($event, 'about')" href="/services">{{ labels.about }}</a></li>
+          <li><NuxtLink to="/articles" @click="isMobileMenuOpen = false">{{ labels.about }}</NuxtLink></li>
           <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
           <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
           <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
@@ -107,7 +107,7 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
         <ul class="mobile-nav-links">
           <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
           <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
-          <li><a href="/services">{{ labels.about }}</a></li>
+          <li><NuxtLink to="/articles" @click="isMobileMenuOpen = false">{{ labels.about }}</NuxtLink></li>
           <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
           <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
           <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
