@@ -32,10 +32,31 @@ const featured = computed(() => articles[0])
 const telegramUrl = 'https://t.me/THE_FADAKAR'
 
 useSeoMeta({
-  title: () => isFa.value ? 'مقالات | فداکار' : 'Articles | Fadakar',
+  title: () => isFa.value ? 'مقالات طراحی سایت، توسعه وب و SEO | FADAKAR' : 'Web Design & SEO Articles | FADAKAR',
   description: () => isFa.value
-    ? 'مقالات فداکار درباره طراحی سایت، معماری وب، سئو، UI/UX، عملکرد و تصمیم‌های فنی کسب‌وکارها.'
-    : 'Fadakar articles about web design, architecture, SEO, UI/UX, performance, and technical decisions for businesses.'
+    ? 'مقالات تخصصی درباره طراحی سایت، معماری وب، سئو، UI/UX، عملکرد و تصمیم‌های فنی کسب‌وکارها.'
+    : 'Specialized articles about web design, architecture, SEO, UI/UX, performance, and technical decisions for businesses.'
+})
+
+const schemaItemList = computed(() => {
+  return articles.map((a, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "url": `https://fadakar.dev/articles/${a.slug}`
+  }))
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: computed(() => JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": schemaItemList.value
+      }))
+    }
+  ]
 })
 </script>
 

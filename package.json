@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
+    "@nuxtjs/robots": "^6.1.4",
+    "@nuxtjs/sitemap": "^8.3.3",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.16.5",
     "@unocss/preset-icons": "^66.4.1",

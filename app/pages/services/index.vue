@@ -11,6 +11,29 @@ const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
+const seoTitle = computed(() => locale.value === 'fa' ? 'خدمات طراحی سایت و توسعه وب | FADAKAR' : 'Web Design & Development Services | FADAKAR')
+const seoDesc = computed(() => locale.value === 'fa' ? 'خدمات حرفه‌ای طراحی و توسعه وب‌سایت، فروشگاه اینترنتی و پلتفرم‌های اختصاصی برای رشد کسب‌وکار شما.' : 'Professional web design and development services for corporate, ecommerce, and custom platforms.')
+
+useSeoMeta({ title: () => seoTitle.value, description: () => seoDesc.value })
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Web Design and Development",
+        "provider": {
+          "@type": "Person",
+          "name": "Erfan Fadakar"
+        },
+        "serviceType": "Web Development",
+        "areaServed": "Worldwide"
+      })
+    }
+  ]
+})
+
 const copy = computed(() => locale.value === 'fa' ? {
   eyebrow: 'خدمات طراحی و توسعه وب',
   title: 'سایت خوب فقط زیبا نیست؛\nباید برای کسب‌وکار شما درست ساخته شود.',

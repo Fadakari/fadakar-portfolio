@@ -13,8 +13,8 @@ const scrollToContact = () => {
 <template>
   <section class="hero-container" id="hero">
     <div class="section-content internal-scroll">
-      <h1 class="hero-name anim-stagger">{{ $t('hero.name') }}</h1>
-      <p class="hero-title anim-stagger">{{ $t('hero.title') }}</p>
+      <div class="hero-name anim-stagger">{{ $t('hero.name') }}</div>
+      <h1 class="hero-title anim-stagger">{{ $t('hero.title') }}</h1>
       <p class="hero-description anim-stagger">{{ $t('hero.description') }}</p>
     </div>
 

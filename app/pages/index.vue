@@ -100,8 +100,8 @@ watch(locale, async () => {
 })
 
 const seo = computed(() => locale.value === 'fa'
-  ? { title: 'فداکار — طراحی و توسعه وب', description: 'طراحی و توسعه وب‌سایت‌های مدرن و حرفه‌ای برای کسب‌وکارها با تمرکز بر تجربه کاربری، عملکرد و سئو.' }
-  : { title: 'Fadakar — Web Design & Development', description: 'Modern, professional websites for businesses with a focus on user experience, performance and SEO.' })
+  ? { title: 'طراحی و توسعه وب‌سایت | FADAKAR', description: 'طراحی و توسعه وب‌سایت‌های حرفه‌ای برای کسب‌وکارها با تمرکز بر تجربه کاربری، عملکرد و سئو.' }
+  : { title: 'Web Design & Development | FADAKAR', description: 'Professional web design and development for businesses with a focus on user experience, performance and SEO.' })
 
 useSeoMeta({ title: () => seo.value.title, description: () => seo.value.description })
 </script>

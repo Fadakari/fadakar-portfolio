@@ -6,7 +6,7 @@
         <h2 class="section-title anim-stagger">{{ $t('about.title') }}</h2>
         <div class="content-wrapper">
           <div class="profile-image-container anim-stagger">
-            <img :src="profileImage" alt="Erfan Fadakar | My pictur" class="profile-image">
+            <img :src="profileImage" :alt="locale === 'fa' ? 'عرفان فداکار توسعه‌دهنده وب' : 'Erfan Fadakar Web Developer'" class="profile-image">
           </div>
           <div class="about-text-content">
             <p class="about-me-text anim-stagger">{{ $t('about.p1') }}</p>
@@ -20,6 +20,7 @@
 </template>
 <script setup lang="ts">
 import profileImage from '../../../public/assets/IMG_20260316_115902_768.webp';
+const { locale } = useLocale()
 </script>
 <style scoped>
 .section-content {

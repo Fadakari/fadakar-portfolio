@@ -17,8 +17,31 @@ if (!article.value) {
 }
 
 useSeoMeta({
-  title: () => article.value ? `${isFa.value ? article.value.title : article.value.titleEn} | Fadakar` : 'Article | Fadakar',
-  description: () => article.value ? (isFa.value ? article.value.excerpt : article.value.excerptEn) : ''
+  title: () => article.value ? `${isFa.value ? article.value.title : article.value.titleEn} | FADAKAR` : 'Article | FADAKAR',
+  description: () => article.value ? (isFa.value ? article.value.excerpt : article.value.excerptEn) : '',
+  ogType: 'article',
+  ogTitle: () => article.value ? `${isFa.value ? article.value.title : article.value.titleEn} | FADAKAR` : 'Article | FADAKAR',
+  ogDescription: () => article.value ? (isFa.value ? article.value.excerpt : article.value.excerptEn) : '',
+  author: 'Erfan Fadakar'
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: computed(() => article.value ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": isFa.value ? article.value.title : article.value.titleEn,
+        "datePublished": article.value.date,
+        "author": [{
+            "@type": "Person",
+            "name": "Erfan Fadakar",
+            "url": "https://fadakar.dev"
+        }]
+      }) : '')
+    }
+  ]
 })
 </script>
 

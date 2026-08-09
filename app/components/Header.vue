@@ -81,9 +81,6 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
           <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
           <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
           <li><NuxtLink to="/articles" @click="isMobileMenuOpen = false">{{ labels.about }}</NuxtLink></li>
-          <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
         </ul>
       </nav>
 
@@ -108,9 +105,6 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
           <li><NuxtLink to="/" @click="isMobileMenuOpen = false">{{ labels.home }}</NuxtLink></li>
           <li><NuxtLink to="/services" @click="isMobileMenuOpen = false">{{ labels.services }}</NuxtLink></li>
           <li><NuxtLink to="/articles" @click="isMobileMenuOpen = false">{{ labels.about }}</NuxtLink></li>
-          <li><a @click="navigateHomeSection($event, 'skills')" href="/#skills">{{ labels.skills }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'projects')" href="/#projects">{{ labels.projects }}</a></li>
-          <li><a @click="navigateHomeSection($event, 'contact')" href="/#contact">{{ labels.contact }}</a></li>
         </ul>
       </nav>
     </div>
