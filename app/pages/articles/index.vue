@@ -67,15 +67,15 @@ useHead({
       <div class="hero-noise" />
       <div class="hero-copy">
         <span class="eyebrow">{{ isFa ? 'KNOWLEDGE / 01' : 'KNOWLEDGE / 01' }}</span>
-        <h1>{{ isFa ? 'مقالاتی برای تصمیم‌های بهتر در وب' : 'Ideas for better decisions on the web' }}</h1>
+        <h1>{{ isFa ? 'چیزهایی که قبل از ساختن یک سایت باید بدانید' : 'Things you need to know before building a website' }}</h1>
         <p>
           {{ isFa
-            ? 'اینجا درباره طراحی، توسعه، سئو، معماری و چیزهایی می‌نویسیم که قبل از ساختن یک وب‌سایت حرفه‌ای باید بدانید.'
-            : 'Practical notes on design, development, SEO, architecture, and the decisions behind professional websites.' }}
+            ? 'از طراحی و تجربه کاربری تا توسعه، سئو، معماری و سرعت؛ اینجا درباره چیزهایی می‌نویسم که در پروژه‌های واقعی مهم‌اند و معمولاً قبل از شروع کار کمتر درباره‌شان صحبت می‌شود.'
+            : 'From design and user experience to development, SEO, architecture, and speed; here I write about things that are important in real projects and are usually less talked about before starting work.' }}
         </p>
         <div class="hero-meta">
-          <span><i /> {{ isFa ? 'محتوای کاربردی' : 'Practical content' }}</span>
-          <span><i /> {{ isFa ? 'بدون وابستگی به ابزار خاص' : 'Tool-agnostic' }}</span>
+          <span><i /> {{ isFa ? 'تجربه‌های واقعی' : 'Real experiences' }}</span>
+          <span><i /> {{ isFa ? 'از تجربه‌های واقعی پروژه‌ها' : 'From real project experiences' }}</span>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -103,9 +103,9 @@ useHead({
       <div class="library-heading">
         <div>
           <span class="eyebrow">LIBRARY / 02</span>
-          <h2>{{ isFa ? 'همه مقالات' : 'All articles' }}</h2>
+          <h2>{{ isFa ? 'مقالات و نوشته‌ها' : 'Articles and writings' }}</h2>
         </div>
-        <p>{{ isFa ? 'از تصمیم‌های اولیه پروژه تا جزئیات فنی، مطالب را طوری می‌نویسیم که قابل استفاده باشند.' : 'From early project decisions to technical details, every article is written to be useful.' }}</p>
+        <p>{{ isFa ? 'بعضی نوشته‌ها از دل یک پروژه واقعی آمده‌اند، بعضی از سؤال‌هایی که بارها با آن‌ها روبه‌رو شده‌ام. هدف این است که هر مقاله چیزی به شما اضافه کند که بتونید واقعاً از اون استفاده کنید.' : "Some of the writing comes from a real project, some from questions I've come across many times. The goal is for each article to give you something you can actually use." }}</p>
       </div>
 
       <div class="controls">
@@ -143,10 +143,10 @@ useHead({
     <section class="article-cta">
       <div>
         <span class="eyebrow">LET'S BUILD / 03</span>
-        <h2>{{ isFa ? 'اگر جواب سؤال‌تان را اینجا پیدا نکردید، بپرسید.' : 'Didn’t find the answer? Ask us.' }}</h2>
-        <p>{{ isFa ? 'برای پروژه‌تان لازم نیست از بین جواب‌های آماده انتخاب کنید. مسئله‌تان را بگویید تا راه‌حل متناسب با آن بررسی شود.' : 'You do not have to force your project into a ready-made answer. Tell us the problem and we will help you find the right path.' }}</p>
+        <h2>{{ isFa ? 'هنوز سؤال دارید؟ با من در میان بگذارید.' : 'Still have questions? Let me know.' }}</h2>
+        <p>{{ isFa ? 'هر پروژه‌ای داستان خودش را دارد. اگر برای کسب‌وکارتان سؤال یا ایده‌ای دارید که جوابش را اینجا پیدا نکردید، پیام بدهید؛ با هم بررسی می‌کنیم بهترین مسیر چیست.' : "Every project has its own story. If you have a question or idea for your business that you can't find the answer to here, send us a message; together we'll explore the best path." }}</p>
       </div>
-      <a :href="telegramUrl" target="_blank" rel="noopener noreferrer">{{ isFa ? 'پیام در تلگرام' : 'Message on Telegram' }} <span>↗</span></a>
+      <a :href="telegramUrl" target="_blank" rel="noopener noreferrer">{{ isFa ? 'صحبت کنیم' : "Let's talk" }} <span>↗</span></a>
     </section>
   </main>
 </template>

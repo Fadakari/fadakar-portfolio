@@ -5,23 +5,23 @@ import { useLocale } from '~/composables/useLocale'
 const messages = {
   fa: {
     hero: {
-      name: 'FADAKAR — عرفان فداکار',
+      name: 'عرفان فداکار',
       title: 'طراحی و توسعه وب‌سایت‌های حرفه‌ای برای کسب‌وکارها',
-      description: 'من تنها یک برنامه‌نویس نیستم؛ شریک فنی شما برای تبدیل ایده‌ها به محصولات دیجیتال قدرتمند، زیبا و درآمدزا هستم. تخصص من ساخت پلتفرم‌هایی است که هم در نگاه اول مخاطب را مجذوب کنند و هم در زیرساخت، بی‌نقص عمل کنند.',
+      description: 'یک وب‌سایت خوب باید هم ظاهر درستی داشته باشد، هم درست کار کند. من روی طراحی، تجربه کاربری و توسعه فنی پروژه کار می‌کنم تا چیزی بسازیم که هم برای مخاطب جذاب باشد و هم برای کسب‌وکار شما واقعاً کاربرد داشته باشد.',
       connect: 'شروع همکاری',
     },
     about: {
-      title: 'چرا من؟',
-      p1: 'در دنیای پررقابت امروز، داشتن یک وب‌سایت معمولی کافی نیست. کسب‌وکار شما به یک پایگاه دیجیتال قدرتمند نیاز دارد که نمایانگر هویت برندتان باشد. تخصص من، طراحی و توسعه چنین محصولاتی است؛ محصولاتی که نه‌تنها زیبا هستند، بلکه با معماری اصولی، سرعت بالا و تجربه کاربری (UX) بی‌نقص، مشتریان شما را به ماندن و خرید ترغیب می‌کنند.',
-      p2: 'برخلاف بسیاری از توسعه‌دهندگان که تنها به ظاهر یا تنها به کدهای بک‌اند توجه می‌کنند، من با تسلط کامل بر هر دو بخش (Full-Stack)، سیستمی یکپارچه خلق می‌کنم. از رابط کاربری جذاب با Vue.js تا معماری سرورهای قدرتمند با پایتون، همه‌چیز در هماهنگی کامل توسعه می‌یابد.',
+      title: 'چرا همکاری با من؟',
+      p1: 'خیلی از سایت‌ها از نظر ظاهری خوب به نظر می‌رسند، اما وقتی پای استفاده واقعی وسط می‌آید، مشکلاتشان شروع می‌شود؛ پیدا کردن اطلاعات سخت است، سایت کند است یا مسیر رسیدن کاربر به هدف مشخص نیست. من سعی می‌کنم از همان ابتدا این بخش‌ها را در کنار طراحی ببینم تا نتیجه فقط یک ظاهر زیبا نباشد.',
+      p2: 'برخلاف بسیاری از توسعه‌دهندگان که تنها به ظاهر یا تنها به کدهای بک‌اند توجه می‌کنند، من با تسلط کامل بر هر دو بخش (Full-Stack)، سیستمی یکپارچه خلق می‌کنم. از رابط کاربری جذاب تا معماری سرورهای قدرتمند با پایتون، همه‌چیز در هماهنگی کامل توسعه می‌یابد.',
       p3: 'هدف من تحویل پروژه‌ای نیست که صرفاً کار کند؛ هدف من خلق ارزشی است که باعث رشد واقعی کسب‌وکار شما شود. بیایید با هم محصولی بسازیم که به آن افتخار کنید و رقبایتان را به چالش بکشد.'
     },
     skills: {
-      title: 'تکنولوژی‌های ساخت ارزش',
-      description: 'من ابزارها را نه صرفاً برای ترند بودن، بلکه برای کارایی، امنیت و تضمین سرعت بالای پروژه‌ی شما انتخاب می‌کنم.',
+      title: 'ابزارهایی که با آن‌ها می‌سازم',
+      description: 'هر پروژه ابزار خودش را می‌خواهد. تکنولوژی را بر اساس نیاز واقعی پروژه، سرعت، قابلیت توسعه و تجربه‌ای که قرار است برای کاربر ساخته شود انتخاب می‌کنم؛ نه صرفاً چون یک ابزار جدید و محبوب است.',
     },
     projects: {
-      title: 'نمونه کارهای اجرایی',
+      title: 'پروژه‌هایی که ساخته‌ام',
       view_details: 'مشاهده جزئیات',
       live_demo: 'مشاهده سایت',
       source_code: 'کد منبع',
@@ -48,23 +48,23 @@ const messages = {
   },
   en: {
     hero: {
-      name: 'FADAKAR — Erfan Fadakar',
+      name: 'Erfan Fadakar',
       title: 'Professional Web Design & Development for Businesses',
-      description: "I'm not just a developer; I'm your technical partner in turning ideas into powerful, beautiful, and profitable digital products. My expertise lies in building platforms that captivate audiences at first glance while operating flawlessly under the hood.",
+      description: "A good website should look and work well. I work on the design, user experience, and technical development of the project to create something that is both engaging for the audience and truly useful for your business.",
       connect: "Start a Project",
     },
     about: {
       title: 'Why Work With Me?',
-      p1: 'In today\'s competitive landscape, a standard website is no longer enough. Your business demands a robust digital presence that truly reflects your brand identity. My expertise is designing and developing such products—solutions that are not only visually stunning but fundamentally engineered for speed, flawless UX, and high conversion rates.',
-      p2: 'Unlike developers who focus strictly on either the frontend or the backend, I leverage a comprehensive Full-Stack perspective. From captivating user interfaces built with Vue.js to scalable, high-performance architectures powered by Python, I ensure every layer of your product works in perfect harmony.',
+      p1: "Many sites look good on the surface, but when it comes to actual use, their problems begin; Information is hard to find, the site is slow, or the user's path to the goal is not clear. I try to see these parts along with the design from the beginning so that the result is not just a pretty look.",
+      p2: 'Unlike developers who focus strictly on either the frontend or the backend, I leverage a comprehensive Full-Stack perspective. From captivating user interfaces to scalable, high-performance architectures powered by Python, I ensure every layer of your product works in perfect harmony.',
       p3: 'My goal isn\'t just to deliver functional code; it\'s to create tangible value that drives real business growth. Let\'s build a digital product that you can be proud of, one that effectively challenges your competitors.',
     },
     skills: {
-      title: 'Technologies of Value',
-      description: 'I choose tools not just because they are trendy, but for their efficiency, security, and the unparalleled performance they guarantee for your project.',
+      title: 'The tools I build with',
+      description: 'Every project needs its own tools. I choose technology based on the actual needs of the project, speed, scalability, and the experience it is going to create for the user, not just because it is a new and popular tool.',
     },
     projects: {
-      title: 'Featured Case Studies',
+      title: 'Projects I have created',
       view_details: 'View details',
       live_demo: 'Live demo',
       source_code: 'Source code',
