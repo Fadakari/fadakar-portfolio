@@ -25,6 +25,7 @@
     "@nuxtjs/sitemap": "^8.3.3",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.16.5",
+    "@unocss/nuxt": "^66.7.5",
     "@unocss/preset-icons": "^66.4.1",
     "@unocss/preset-uno": "^66.4.1",
     "@unocss/reset": "^66.4.1",
