@@ -8,6 +8,7 @@ import HeroSection from '~/components/sections/HeroSection.vue'
 import AboutSection from '~/components/sections/AboutSection.vue'
 import SkillsSection from '~/components/sections/SkillsSection.vue'
 import ProjectsSection from '~/components/sections/ProjectsSection.vue'
+import SocialCommunitySection from '~/components/sections/SocialCommunitySection.vue'
 import ContactSection from '~/components/sections/ContactSection.vue'
 import FooterSection from '~/components/sections/FooterSection.vue'
 
@@ -15,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const { locale, isRtl } = useLocale()
 const currentSectionIndex = ref(0)
-const sectionIds = ['hero', 'about', 'skills', 'projects', 'contact']
+const sectionIds = ['hero', 'about', 'skills', 'projects', 'community', 'contact']
 
 const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -116,6 +117,7 @@ useSeoMeta({ title: () => seo.value.title, description: () => seo.value.descript
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <SocialCommunitySection />
       <ContactSection />
     </main>
 
