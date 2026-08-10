@@ -30,7 +30,13 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: #3100f32a;
+}
 
+::-moz-selection {
+  background: #3100f32a;
+}
 
 @media print {
   /* ۱. اجبار مرورگر به حفظ رنگ‌ها و پس‌زمینه مشکی وب‌سایت */
