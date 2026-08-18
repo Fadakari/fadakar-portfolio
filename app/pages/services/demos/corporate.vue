@@ -13,10 +13,10 @@ const isMobileMenuOpen = ref(false)
 const activeStory = ref(0)
 
 const storyImages = [
-  'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200', // Design
-  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200', // Eng
+  '/assets/demo/photo-1503387762-592deb58ef4e.avif', // Design
+  '/assets/demo/photo-1581094794329-c8112a89af12.avif', // Eng
   'https://images.unsplash.com/photo-1541888082470-fa4eb7890940?auto=format&fit=crop&q=80&w=1200', // Construct
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200', // Delivery
+  '/assets/demo/photo-1486406146926-c627a92ad1ab.avif', // Delivery
 ]
 
 const handleScroll = () => {
@@ -154,7 +154,7 @@ onUnmounted(() => {
     
     <!-- Global Background -->
     <div class="fixed inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2500" alt="Corporate Building" class="global-bg-img w-full h-full object-cover origin-center" />
+      <img src="/assets/demo/photo-1486406146926-c627a92ad1ab.avif" alt="Corporate Building" class="global-bg-img w-full h-full object-cover origin-center" />
       <div class="global-overlay absolute inset-0 bg-[#050b14]/50 backdrop-blur-[2px]"></div>
     </div>
     <!-- Main Content Wrapper (Above fixed BG) -->
@@ -264,7 +264,7 @@ onUnmounted(() => {
             <!-- Image -->
             <div class="reveal-up order-1 lg:order-2 relative">
               <div class="aspect-[4/5] overflow-hidden rounded-3xl relative z-10 shadow-2xl border border-white/10">
-                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1000" alt="Engineering Team" class="w-full h-full object-cover" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);" />
+                <img src="/assets/demo/photo-1503387762-592deb58ef4e.avif" alt="Engineering Team" class="w-full h-full object-cover" style="mask-image: linear-gradient(to bottom, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);" />
               </div>
               <!-- Decorative Box -->
               <div class="absolute -bottom-8 -right-8 w-2/3 h-2/3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl z-0 hidden md:block"></div>
@@ -313,7 +313,7 @@ onUnmounted(() => {
             <!-- Service 1 -->
             <div class="stagger-item group cursor-pointer">
               <div class="relative overflow-hidden aspect-video rounded-3xl mb-6 shadow-xl border border-white/10">
-                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800" alt="Design" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img src="/assets/demo/photo-1581094794329-c8112a89af12.avif" alt="Design" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-[#050b14]/50 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#050b14] to-transparent"></div>
                 <h3 class="absolute bottom-6 right-6 text-2xl font-bold text-white">مهندسی و طراحی</h3>
@@ -325,7 +325,7 @@ onUnmounted(() => {
             <!-- Service 2 -->
             <div class="stagger-item group cursor-pointer md:mt-12">
               <div class="relative overflow-hidden aspect-video rounded-3xl mb-6 shadow-xl border border-white/10">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800" alt="Construction" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img src="/assets/demo/photo-1504307651254-35680f356dfd.avif" alt="Construction" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-[#050b14]/50 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#050b14] to-transparent"></div>
                 <h3 class="absolute bottom-6 right-6 text-2xl font-bold text-white">اجرای پروژه‌های کلان</h3>
@@ -337,7 +337,7 @@ onUnmounted(() => {
             <!-- Service 3 -->
             <div class="stagger-item group cursor-pointer md:mt-24">
               <div class="relative overflow-hidden aspect-video rounded-3xl mb-6 shadow-xl border border-white/10">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" alt="Consulting" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img src="/assets/demo/photo-1486406146926-c627a92ad1ab.avif" alt="Consulting" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-[#050b14]/50 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#050b14] to-transparent"></div>
                 <h3 class="absolute bottom-6 right-6 text-2xl font-bold text-white">توسعه زیرساخت</h3>
@@ -432,7 +432,7 @@ onUnmounted(() => {
 
           <!-- Full Width Project -->
           <div class="reveal-up relative w-full aspect-video max-h-[500px] rounded-3xl overflow-hidden group cursor-pointer mb-12 shadow-2xl border border-white/10">
-            <img src="https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&q=80&w=2500" alt="Bridge Project" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
+            <img src="/assets/demo/photo-1545459720-aac8509eb02c.avif" alt="Bridge Project" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#050b14]/90 via-[#050b14]/30 to-transparent"></div>
             <div class="absolute bottom-8 left-8 right-8 text-white flex flex-col md:flex-row justify-between items-end">
               <div>
@@ -452,7 +452,7 @@ onUnmounted(() => {
           <!-- Grid Projects -->
           <div class="grid md:grid-cols-2 gap-8">
             <div class="reveal-up relative aspect-video max-h-[400px] rounded-3xl overflow-hidden group cursor-pointer shadow-xl border border-white/10">
-              <img src="https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&q=80&w=1000" alt="Industrial Complex" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
+              <img src="/assets/demo/photo-1508450859948-4e04fabaa4ea.avif" alt="Industrial Complex" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-[#050b14]/90 via-[#050b14]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
               <div class="absolute bottom-8 right-8 left-8 text-white">
                 <span class="text-[#c7923e] font-bold text-sm mb-2 block">صنعتی - ۱۴۰۰</span>
@@ -464,7 +464,7 @@ onUnmounted(() => {
             </div>
             
             <div class="reveal-up relative aspect-video max-h-[400px] rounded-3xl overflow-hidden group cursor-pointer shadow-xl border border-white/10">
-              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000" alt="Twin Towers" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
+              <img src="/assets/demo/photo-1513694203232-719a280e022f.avif" alt="Twin Towers" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-[#050b14]/90 via-[#050b14]/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
               <div class="absolute bottom-8 right-8 left-8 text-white">
                 <span class="text-[#c7923e] font-bold text-sm mb-2 block">تجاری و اداری - ۱۴۰۲</span>
