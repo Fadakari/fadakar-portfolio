@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import yazdMobile from '../../../../public/assets/-2147483648_-210038.webp'
 
 useSeoMeta({
   title: 'طراحی سایت فروشگاهی | FADAKAR',
@@ -13,6 +14,7 @@ const sections = [
   { id: 'experience', label: 'تجربه‌ای که می‌سازیم' },
   { id: 'business', label: 'متناسب با کسب‌وکار' },
   { id: 'scope', label: 'قابلیت‌ها' },
+  { id: 'real-project', label: 'نمونه واقعی' },
   { id: 'final', label: 'قدم بعدی' }
 ]
 
@@ -81,8 +83,8 @@ onMounted(() => {
             
             <p class="anim-text mt-8 text-lg leading-9 text-slate-300">
               سایت فروشگاهی خوب باید کاری کند که 
-              <mark class="highlight-text font-bold text-[#38bdf8] bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/20 bg-no-repeat [background-position:0_100%] [background-size:0%_100%] rounded-md px-1 py-0.5">مشتری راحت‌تر محصول مناسب را پیدا کند</mark>، 
-              <mark class="highlight-text font-bold text-[#38bdf8] bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/20 bg-no-repeat [background-position:0_100%] [background-size:0%_100%] rounded-md px-1 py-0.5">با اطمینان تصمیم بگیرد</mark> و 
+              <mark class="highlight-text font-bold text-light bg-[#5D00BD50] rounded-md px-1 py-0.5">مشتری راحت‌تر محصول مناسب را پیدا کند</mark>، 
+              <mark class="highlight-text font-bold text-light bg-[#5D00BD50] rounded-md px-1 py-0.5">با اطمینان تصمیم بگیرد</mark> و 
               <span class="font-bold text-white">بدون سردرگمی خریدش را کامل کند</span>. 
               ظاهر زیبا فقط شروع ماجراست.
             </p>
@@ -116,7 +118,7 @@ onMounted(() => {
           <div class="anim-text space-y-10 text-lg leading-loose text-slate-300">
             <p>
               اگر مشتری برای دیدن محصولات، قیمت، موجودی یا راه ارتباطی با شما مجبور باشد هر بار در شبکه‌های اجتماعی جست‌وجو کند، بخشی از مسیر خرید را خودتان سخت کرده‌اید. 
-              <mark class="highlight-text font-bold text-[#38bdf8] bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/20 bg-no-repeat [background-position:0_100%] [background-size:0%_100%] rounded-md px-1.5 py-0.5">سایت فروشگاهی یک محل دائمی و قابل جست‌وجو برای کسب‌وکار شماست</mark>؛ جایی که مشتری می‌تواند هر زمان که خواست، اطلاعات را منظم و کامل ببیند.
+              <mark class="highlight-text font-bold text-light bg-[#5D00BD50] rounded-md px-1.5 py-0.5">سایت فروشگاهی یک محل دائمی و قابل جست‌وجو برای کسب‌وکار شماست</mark>؛ جایی که مشتری می‌تواند هر زمان که خواست، اطلاعات را منظم و کامل ببیند.
             </p>
             <p>
               اما هدف ما این نیست که صرفاً یک کاتالوگ آنلاین تحویل شما بدهیم. 
@@ -141,7 +143,7 @@ onMounted(() => {
               <span class="inline-block rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-1.5 text-xs font-black tracking-widest text-[#38bdf8]">02 / تجربه خرید</span>
               <h2 class="mt-6 text-4xl font-black leading-tight sm:text-5xl text-white">کاربر نباید برای خرید با سایت بجنگد.</h2>
               <p class="mt-6 text-lg leading-8 text-slate-400">
-                <mark class="highlight-text font-bold text-[#38bdf8] bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/20 bg-no-repeat [background-position:0_100%] [background-size:0%_100%] rounded-md px-1 py-0.5">هر جزء صفحه باید یک دلیل داشته باشد</mark>: کمک به پیدا کردن، مقایسه، اعتماد یا خرید.
+                <mark class="highlight-text font-bold text-light bg-[#5D00BD50] rounded-md px-1 py-0.5">هر جزء صفحه باید یک دلیل داشته باشد</mark>: کمک به پیدا کردن، مقایسه، اعتماد یا خرید.
               </p>
             </div>
             
@@ -212,7 +214,7 @@ onMounted(() => {
               <h3 class="text-3xl font-black text-white leading-tight">اما همه این امکانات را نباید به همه فروشگاه‌ها اضافه کرد.</h3>
               <p class="mt-6 text-lg leading-9 text-slate-300">
                 یکی از تفاوت‌های طراحی اختصاصی با فروش یک قالب آماده همین است. 
-                <mark class="highlight-text font-bold text-[#38bdf8] bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/20 bg-no-repeat [background-position:0_100%] [background-size:0%_100%] rounded-md px-1.5 py-0.5">ما امکانات را بر اساس نیاز واقعی اضافه می‌کنیم</mark> 
+                <mark class="highlight-text font-bold text-light bg-[#5D00BD50] rounded-md px-1.5 py-0.5">ما امکانات را بر اساس نیاز واقعی اضافه می‌کنیم</mark> 
                 تا هم بودجه کنترل شود و هم سایت شلوغ و پیچیده نشود.
               </p>
             </div>
@@ -220,10 +222,73 @@ onMounted(() => {
         </div>
       </section>
 
+      <!-- Real Project Section -->
+      <section id="real-project" class="scroll-mt-24 py-20 lg:py-32 border-t border-white/5 bg-[#0a0f18]">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="grid gap-16 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+            
+            <!-- تصویر و دمو -->
+            <div class="anim-text relative group overflow-hidden rounded-[24px] border border-white/10 shadow-2xl">
+              <img :src="yazdMobile" alt="Yazd Mobile E-commerce" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f18] via-transparent to-transparent opacity-80"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 flex flex-wrap gap-2">
+                <span v-for="tag in ['React', 'Next.js', 'TypeScript', 'Tailwind']" :key="tag" class="bg-black/50 backdrop-blur-md border border-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-lg">
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+
+            <!-- توضیحات -->
+            <div class="anim-text">
+              <span class="inline-block rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-1.5 text-xs font-black tracking-widest text-[#38bdf8]">05 / نمونه پروژه واقعی</span>
+              <h2 class="mt-6 text-4xl font-black leading-tight sm:text-5xl text-white">
+                یزد موبایل؛ <br />
+                <span class="text-slate-400 text-3xl">فروشگاهی در مقیاس بزرگ</span>
+              </h2>
+              <p class="mt-8 text-lg leading-9 text-slate-300">
+                این فقط یک طرح مفهومی نیست. یزد موبایل یک پلتفرم فروشگاهی کاملاً عملیاتی است که برای هندل کردن تراکنش‌های واقعی، موجودی انبار پیچیده و تجربه کاربری یکپارچه ساخته شده است.
+              </p>
+              
+              <ul class="mt-8 space-y-4">
+                <li class="flex items-start gap-3 text-slate-300">
+                  <svg class="w-6 h-6 text-[#38bdf8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>ساخته شده با <strong class="text-white">Next.js و React</strong> برای سرعت بالا و سئوی قدرتمند.</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <svg class="w-6 h-6 text-[#38bdf8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>ساختار داده‌ای پیچیده و مدیریت موجودی دقیق.</span>
+                </li>
+                <li class="flex items-start gap-3 text-slate-300">
+                  <svg class="w-6 h-6 text-[#38bdf8] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>تجربه کاربری سیال (Smooth UX) مشابه اپلیکیشن‌های بومی.</span>
+                </li>
+              </ul>
+              
+              <div class="mt-12">
+                <a href="https://yazd-mobile.ir" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1e293b] border border-[#38bdf8]/30 px-8 py-4 text-base font-bold text-white transition-all hover:bg-[#38bdf8] hover:text-black hover:border-[#38bdf8]">
+                  مشاهده سایت یزد موبایل
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
       <!-- Final Section -->
       <section id="final" class="scroll-mt-24 relative py-24 lg:py-40 border-t border-white/5">
         <div class="relative mx-auto max-w-4xl px-6 text-center">
-          <span class="anim-text inline-block rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-1.5 text-xs font-black tracking-widest text-[#38bdf8]">05 / قدم بعدی</span>
+          <span class="anim-text inline-block rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-1.5 text-xs font-black tracking-widest text-[#38bdf8]">06 / قدم بعدی</span>
           <h2 class="anim-text mt-8 text-4xl font-black leading-tight sm:text-6xl text-white">
             اگر فکر می‌کنید کسب‌وکارتان جای یک سایت بهتر را دارد، 
             <span class="text-[#38bdf8]">از همین‌جا شروع کنیم.</span>

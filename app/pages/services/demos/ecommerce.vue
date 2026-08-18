@@ -16,14 +16,14 @@ const selectedProduct = ref<any>(null)
 const categories = ['همه', 'موبایل و دیجیتال', 'لوازم خانه', 'آشپزخانه', 'پوشیدنی', 'زیبایی']
 
 const products = [
-  { id: 1, title: 'هدفون بی‌سیم نویزکنسلینگ سونی', category: 'موبایل و دیجیتال', price: '۸٬۴۹۰٬۰۰۰', oldPrice: '۹٬۲۹۰٬۰۰۰', discount: '۹٪', rating: '۴.۸', reviews: 126, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85' },
-  { id: 2, title: 'ساعت هوشمند AMOLED سری Pro', category: 'موبایل و دیجیتال', price: '۶٬۷۹۰٬۰۰۰', oldPrice: '۷٬۴۰۰٬۰۰۰', discount: '۸٪', rating: '۴.۷', reviews: 84, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85' },
-  { id: 3, title: 'چراغ رومیزی مینیمال چوبی', category: 'لوازم خانه', price: '۲٬۱۵۰٬۰۰۰', oldPrice: '۲٬۵۰۰٬۰۰۰', discount: '۱۴٪', rating: '۴.۹', reviews: 57, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85' },
-  { id: 4, title: 'اسپرسوساز خانگی نیمه‌اتوماتیک', category: 'آشپزخانه', price: '۱۲٬۹۰۰٬۰۰۰', oldPrice: '۱۴٬۲۰۰٬۰۰۰', discount: '۹٪', rating: '۴.۶', reviews: 41, image: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=900&q=85' },
-  { id: 5, title: 'کفش روزمره سبک و راحت', category: 'پوشیدنی', price: '۳٬۴۹۰٬۰۰۰', oldPrice: '۳٬۹۰۰٬۰۰۰', discount: '۱۰٪', rating: '۴.۸', reviews: 93, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85' },
-  { id: 6, title: 'ست مراقبت پوست روزانه', category: 'زیبایی', price: '۱٬۸۹۰٬۰۰۰', oldPrice: '۲٬۲۰۰٬۰۰۰', discount: '۱۴٪', rating: '۴.۷', reviews: 72, image: 'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85' },
-  { id: 7, title: 'کیبورد مکانیکی بی‌سیم', category: 'موبایل و دیجیتال', price: '۴٬۷۹۰٬۰۰۰', oldPrice: '۵٬۳۰۰٬۰۰۰', discount: '۱۰٪', rating: '۴.۹', reviews: 38, image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85' },
-  { id: 8, title: 'صندلی ارگونومیک کار و مطالعه', category: 'لوازم خانه', price: '۹٬۶۰۰٬۰۰۰', oldPrice: '۱۰٬۵۰۰٬۰۰۰', discount: '۹٪', rating: '۴.۶', reviews: 29, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85' },
+  { id: 1, title: 'هدفون بی‌سیم نویزکنسلینگ سونی', category: 'موبایل و دیجیتال', price: '۸٬۴۹۰٬۰۰۰', oldPrice: '۹٬۲۹۰٬۰۰۰', discount: '۹٪', rating: '۴.۸', reviews: 126, image: '/assets/demo/photo-1505740420928-5e560c06d30e.avif' },
+  { id: 2, title: 'ساعت هوشمند AMOLED سری Pro', category: 'موبایل و دیجیتال', price: '۶٬۷۹۰٬۰۰۰', oldPrice: '۷٬۴۰۰٬۰۰۰', discount: '۸٪', rating: '۴.۷', reviews: 84, image: '/assets/demo/photo-1523275335684-37898b6baf30.avif' },
+  { id: 3, title: 'چراغ رومیزی مینیمال چوبی', category: 'لوازم خانه', price: '۲٬۱۵۰٬۰۰۰', oldPrice: '۲٬۵۰۰٬۰۰۰', discount: '۱۴٪', rating: '۴.۹', reviews: 57, image: '/assets/demo/photo-1507473885765-e6ed057f782c.avif' },
+  { id: 4, title: 'اسپرسوساز خانگی نیمه‌اتوماتیک', category: 'آشپزخانه', price: '۱۲٬۹۰۰٬۰۰۰', oldPrice: '۱۴٬۲۰۰٬۰۰۰', discount: '۹٪', rating: '۴.٦', reviews: 41, image: '/assets/demo/photo-1510707577719-ae7c14805e3a.avif' },
+  { id: 5, title: 'کفش روزمره سبک و راحت', category: 'پوشیدنی', price: '٣٬٤٩٠٬٠٠٠', oldPrice: '٣٬٩٠٠٬٠٠٠', discount: '١٠٪', rating: '٤.٨', reviews: 93, image: '/assets/demo/photo-1542291026-7eec264c27ff.avif' },
+  { id: 6, title: 'ست مراقبت پوست روزانه', category: 'زیبایی', price: '١٬٨٩٠٬٠٠٠', oldPrice: '٢٬٢٠٠٬٠٠٠', discount: '١٤٪', rating: '⁴.⁷', reviews: 72, image: '/assets/demo/photo-1556229010-6c3f2c9ca5f8.avif' },
+  { id: 7, title: 'کیبورد مکانیکی بی‌سیم', category: 'موبایل و دیجیتال', price: '⁴٬⁷⁹⁰٬⁰⁰⁰', oldPrice: '⁵٬³⁰⁰٬⁰⁰⁰', discount: '¹⁰٪', rating: '⁴.⁹', reviews: 38, image: '/assets/demo/photo-1587829741301-dc798b83add3.avif' },
+  { id: 8, title: 'صندلی ارگونومیک کار و مطالعه', category: 'لوازم خانه', price: '۹٬۶۰۰٬۰۰۰', oldPrice: '۱۰٬۵۰۰٬۰۰۰', discount: '۹٪', rating: '۴.۶', reviews: 29, image: '/assets/demo/photo-1586023492125-27b2c045efd7.avif' },
 ]
 
 const filteredProducts = computed(() => products.filter(product => {
@@ -109,7 +109,7 @@ const openProduct = (product: any) => {
 
       <section class="promo container">
         <div class="promo-text"><span>برای خانه‌ای بهتر</span><h2>جزئیات کوچک،<br><strong>تفاوت بزرگ.</strong></h2><p>منتخب لوازم خانه و آشپزخانه برای کسانی که به کیفیت اهمیت می‌دهند.</p><button class="light-button" @click="activeCategory = 'لوازم خانه'">دیدن مجموعه</button></div>
-        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1300&q=88" alt="لوازم خانه">
+        <img src="/assets/demo/photo-1556911220-e15b29be8c8f.avif" alt="لوازم خانه">
       </section>
 
       <section class="container section categories-section">
