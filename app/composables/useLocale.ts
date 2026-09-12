@@ -1,7 +1,7 @@
 export type Locale = 'fa' | 'en'
 
 export const useLocale = () => {
-  const locale = useState<Locale>('site-locale', () => 'fa')
+  const locale = useState<Locale>('site-locale', () => 'en')
 
   const setLocale = (nextLocale: Locale) => {
     locale.value = nextLocale
@@ -14,7 +14,7 @@ export const useLocale = () => {
 
   onMounted(() => {
     const savedLocale = localStorage.getItem('site-locale') as Locale | null
-    setLocale(savedLocale === 'en' ? 'en' : 'fa')
+    setLocale(savedLocale === 'fa' ? 'fa' : 'en')
   })
 
   return {
