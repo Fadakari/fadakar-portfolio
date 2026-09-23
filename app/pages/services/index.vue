@@ -65,24 +65,19 @@ const copy = computed(() => locale.value === 'fa' ? {
     ['قبل از شروع دقیقاً می‌فهمم چه چیزی تحویل می‌گیرم؟', 'بله. قبل از اجرا، محدوده پروژه، قابلیت‌ها، مسیر اجرا و پیشنهاد معماری به شکل قابل فهم مشخص می‌شود. برای پروژه‌های جدی، مستند فنی کامل‌تر هم ارائه می‌کنیم.'],
   ],
   services: [
-    { title: 'سایت فروشگاهی', short: 'فروش آنلاین محصولات از یک فروشگاه کوچک تا فروشگاه‌های بزرگ با کاتالوگ گسترده.', detail: 'دسته‌بندی، جست‌وجو، فیلتر، صفحات محصول، سبد خرید، پرداخت، مدیریت سفارش و زیرساختی که متناسب با حجم فروش انتخاب می‌شود.' },
+    { title: 'سایت فروشگاهی', short: 'فروش آنلاین محصولات از یک فروشگاه کوچک تا فروشگاه‌های بزرگ با کاتالوگ گسترده.', detail: 'دسته‌بندی، جست‌وجو، فیلتر، صفحات محصول، سبد خرید، پرداخت، مدیریت سفارش و زیرساختی که متناسب با حجم فروش انتخاب می‌شود.', link: '/services/demos/ecommerce-details' },
     {
       title: 'سیستم دیجیتال اختصاصی کسب‌وکار',
       short: 'برای کسب‌وکارهایی که فقط سایت نمی‌خواهند؛ یک سیستم هوشمند برای مدیریت، فروش و ارتباط با مشتری نیاز دارند.',
       detail: 'داشبورد اختصاصی، مدیریت مشتریان، اتوماسیون فرآیندها، اتصال به سرویس‌های مختلف، گزارش‌گیری، پنل‌های مدیریتی و ساخت زیرساختی که متناسب با مدل واقعی کسب‌وکار توسعه پیدا می‌کند.',
-      accent: "#06b6d4"
+      accent: "#06b6d4",
+      link: '/services/demos/custom-system-details'
     },
-    {
-      title: 'تجربه دیجیتال و اتوماسیون هوشمند',
-      short: 'طراحی مسیرهای هوشمند برای جذب مشتری، پاسخ‌گویی و رشد کسب‌وکار با کمک تکنولوژی‌های جدید.',
-      detail: 'طراحی تجربه کاربر، اتصال هوش مصنوعی به فرآیندهای کسب‌وکار، دستیارهای هوشمند، سیستم‌های پاسخ‌گویی، تولید محتوای خودکار و بهینه‌سازی مسیر تبدیل بازدیدکننده به مشتری.',
-      accent: "#a855f7"
-    },
-    { title: 'سایت شرکتی و سازمانی', short: 'برای شرکت‌هایی که می‌خواهند اعتبار، خدمات و ساختار کسب‌وکارشان را حرفه‌ای معرفی کنند.', detail: 'ساختار چندصفحه‌ای، معرفی خدمات و تیم، پروژه‌ها، مقالات، فرم‌های ارتباطی، صفحات فرود و معماری قابل توسعه.' },
-    { title: 'سایت خدماتی و محلی', short: 'برای کسب‌وکارهایی که مشتری از گوگل، نقشه و جست‌وجوی محلی پیدا می‌کنند.', detail: 'صفحات خدمات هدفمند، اطلاعات تماس، موقعیت، سوالات متداول و ساختار محتوایی مناسب برای جذب مشتری محلی.' },
-    { "title": "وب‌سایت رستوران و کافه", "short": "منوی آنلاین، رزرو، معرفی شعب و تجربه‌ای حرفه‌ای برای مشتریان.", "detail": "طراحی سریع و واکنش‌گرا با دیزاین مناسب، معرفی غذاها، اطلاعات شعب، رزرو و اتصال به شبکه‌های اجتماعی.", "accent": "#f59e0b" },
-    { title: 'سایت املاک و مستغلات', short: 'برای مشاوران املاک، دفاتر و مجموعه‌های فعال در خرید، فروش و اجاره.', detail: 'نمایش فایل‌ها، جست‌وجو و فیلتر، صفحات منطقه و ملک، فرم درخواست و ساختاری مناسب برای جذب مشتری از گوگل.' },
-    { title: 'سایت بوتیک و مد', short: 'ویترین دیجیتال برای پوشاک، اکسسوری، کفش و برندهای فشن.', detail: 'کالکشن‌ها، فیلتر محصولات، تصاویر حرفه‌ای، صفحات برند، فروش یا معرفی محصول و طراحی بصری متناسب با هویت برند.' },
+    { title: 'سایت شرکتی و سازمانی', short: 'برای شرکت‌هایی که می‌خواهند اعتبار، خدمات و ساختار کسب‌وکارشان را حرفه‌ای معرفی کنند.', detail: 'ساختار چندصفحه‌ای، معرفی خدمات و تیم، پروژه‌ها، مقالات، فرم‌های ارتباطی، صفحات فرود و معماری قابل توسعه.', link: '/services/demos/corporate-details' },
+    { title: 'سایت خدماتی و محلی', short: 'برای کسب‌وکارهایی که مشتری از گوگل، نقشه و جست‌وجوی محلی پیدا می‌کنند.', detail: 'صفحات خدمات هدفمند، اطلاعات تماس، موقعیت، سوالات متداول و ساختار محتوایی مناسب برای جذب مشتری محلی.', link: '/services/demos/local-service-details' },
+    { "title": "وب‌سایت رستوران و کافه", "short": "منوی آنلاین، رزرو، معرفی شعب و تجربه‌ای حرفه‌ای برای مشتریان.", "detail": "طراحی سریع و واکنش‌گرا با دیزاین مناسب، معرفی غذاها، اطلاعات شعب، رزرو و اتصال به شبکه‌های اجتماعی.", "accent": "#f59e0b", link: '/services/demos/restaurant-cafe-details' },
+    { title: 'سایت املاک و مستغلات', short: 'برای مشاوران املاک، دفاتر و مجموعه‌های فعال در خرید، فروش و اجاره.', detail: 'نمایش فایل‌ها، جست‌وجو و فیلتر، صفحات منطقه و ملک، فرم درخواست و ساختاری مناسب برای جذب مشتری از گوگل.', link: '/services/demos/real-estate-details' },
+    { title: 'سایت بوتیک و مد', short: 'ویترین دیجیتال برای پوشاک، اکسسوری، کفش و برندهای فشن.', detail: 'کالکشن‌ها، فیلتر محصولات، تصاویر حرفه‌ای، صفحات برند، فروش یا معرفی محصول و طراحی بصری متناسب با هویت برند.', link: '/services/demos/fashion-details' },
     { title: 'سایت طلافروشی و جواهرات', short: 'طراحی لوکس و دقیق برای طلافروشی، جواهرفروشی و برندهای زیورآلات.', detail: 'نمایش محصول، کالکشن، قیمت و ویژگی‌ها، تجربه کاربری مناسب، ساختار اعتمادساز و امکان اتصال به سرویس‌های مورد نیاز کسب‌وکار.' },
     { title: 'سایت آموزشی و دوره آنلاین', short: 'برای مدرس‌ها، آموزشگاه‌ها، آکادمی‌ها و کسب‌وکارهای آموزشی.', detail: 'معرفی دوره‌ها، مدرس‌ها، محتوای آموزشی، ثبت‌نام و معماری قابل توسعه برای امکانات آموزشی بیشتر.' },
     { title: 'سایت باشگاه و مجموعه ورزشی', short: 'برای باشگاه‌ها، مربیان، استودیوهای ورزشی و مجموعه‌های سلامت و ورزش.', detail: 'معرفی خدمات، برنامه‌ها، مربیان، کلاس‌ها، رزرو و تماس؛ با تمرکز روی استفاده سریع موبایل.' },
@@ -117,24 +112,19 @@ const copy = computed(() => locale.value === 'fa' ? {
     ['Will I know what I am getting before development starts?', 'Yes. Scope, features, implementation path and the proposed architecture are defined before development. Serious projects can also receive a detailed technical document.'],
   ],
   services: [
-    { title: 'E-commerce website', short: 'Online sales from small stores to large catalogs.', detail: 'Categories, search, filters, product pages, cart, checkout, orders and infrastructure chosen for actual sales volume.' },
+    { title: 'E-commerce website', short: 'Online sales from small stores to large catalogs.', detail: 'Categories, search, filters, product pages, cart, checkout, orders and infrastructure chosen for actual sales volume.', link: '/services/demos/ecommerce-details' },
     {
       title: 'Custom Business Digital System',
       short: 'For businesses that need more than a website; a smart system to manage operations, sales and customer relationships.',
       detail: 'Custom dashboards, customer management, workflow automation, third-party integrations, analytics, admin panels and scalable infrastructure built around real business needs.',
-      accent: "#06b6d4"
+      accent: "#06b6d4",
+      link: '/services/demos/custom-system-details'
     },
-    {
-      title: 'Digital Experience & Smart Automation',
-      short: 'Smart digital experiences that help businesses attract customers, automate communication and grow faster.',
-      detail: 'User journey design, AI-powered business workflows, intelligent assistants, automated customer support, content automation and conversion optimization systems.',
-      accent: "#a855f7"
-    },
-    { title: 'Corporate & business website', short: 'For companies that need to present their credibility, services and structure professionally.', detail: 'Multi-page structure, services, team, projects, articles, contact forms, landing pages and a scalable architecture.' },
-    { title: 'Local service website', short: 'For businesses that acquire customers through Google and local search.', detail: 'Targeted service pages, contact details, location, FAQs and content structure for local acquisition.' },
-    { "title": "Restaurant and cafe website", "short": "Online menu, reservations, branch introductions, and a professional experience for customers.", "detail": "Fast and responsive design with appropriate design, food introduction, branch information, reservations, and connection to social networks.", "accent": "#f59e0b" },
-    { title: 'Real Estate Website', short: 'For agents, offices and businesses in property sales, rentals and real estate.', detail: 'Listings, search and filters, property and area pages, inquiry forms and a structure built for local search.' },
-    { title: 'Fashion & boutique', short: 'A digital storefront for clothing, accessories, footwear and fashion brands.', detail: 'Collections, product filters, strong imagery, brand pages, product sales or presentation and visual identity.' },
+    { title: 'Corporate & business website', short: 'For companies that need to present their credibility, services and structure professionally.', detail: 'Multi-page structure, services, team, projects, articles, contact forms, landing pages and a scalable architecture.', link: '/services/demos/corporate-details' },
+    { title: 'Local service website', short: 'For businesses that acquire customers through Google and local search.', detail: 'Targeted service pages, contact details, location, FAQs and content structure for local acquisition.', link: '/services/demos/local-service-details' },
+    { "title": "Restaurant and cafe website", "short": "Online menu, reservations, branch introductions, and a professional experience for customers.", "detail": "Fast and responsive design with appropriate design, food introduction, branch information, reservations, and connection to social networks.", "accent": "#f59e0b", link: '/services/demos/restaurant-cafe-details' },
+    { title: 'Real Estate Website', short: 'For agents, offices and businesses in property sales, rentals and real estate.', detail: 'Listings, search and filters, property and area pages, inquiry forms and a structure built for local search.', link: '/services/demos/real-estate-details' },
+    { title: 'Fashion & boutique', short: 'A digital storefront for clothing, accessories, footwear and fashion brands.', detail: 'Collections, product filters, strong imagery, brand pages, product sales or presentation and visual identity.', link: '/services/demos/fashion-details' },
     { title: 'Jewelry & gold store', short: 'A refined digital presence for jewelry stores and luxury accessory brands.', detail: 'Collections, product presentation, pricing and features, trust-focused UX and integrations required by the business.' },
     { title: 'Education & Online Courses', short: 'For teachers, academies, training centers and education businesses.', detail: 'Courses, instructors, learning content, registration flows and an architecture ready for future education features.' },
     { title: 'Gym & sports website', short: 'For gyms, coaches, studios and sports businesses.', detail: 'Services, programs, coaches, classes, booking and contact with a mobile-first experience.' },
@@ -214,14 +204,25 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
           <p>{{ copy.categoriesText }}</p>
         </div>
         <div class="services-grid">
-          <article v-for="(service, index) in copy.services" :key="service.title" class="service-card" :style="{ '--accent': service.accent || '#8a2be2' }">
-            <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
-            <div class="service-icon" aria-hidden="true"><span></span><span></span><span></span></div>
-            <h3>{{ service.title }}</h3>
-            <p class="service-short">{{ service.short }}</p>
-            <p class="service-detail">{{ service.detail }}</p>
-            <a :href="telegramUrl" target="_blank" rel="noopener noreferrer" class="service-cta">{{ copy.start }} <span>↗</span></a>
-          </article>
+          <template v-for="(service, index) in copy.services" :key="service.title">
+            <NuxtLink v-if="service.link" :to="service.link" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
+              <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
+              <div class="service-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+              <h3>{{ service.title }}</h3>
+              <p class="service-short">{{ service.short }}</p>
+              <p class="service-detail">{{ service.detail }}</p>
+              <div class="service-cta">{{ copy.viewDetails }} <span>↗</span></div>
+            </NuxtLink>
+
+            <a v-else :href="telegramUrl" target="_blank" rel="noopener noreferrer" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
+              <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
+              <div class="service-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+              <h3>{{ service.title }}</h3>
+              <p class="service-short">{{ service.short }}</p>
+              <p class="service-detail">{{ service.detail }}</p>
+              <div class="service-cta">{{ copy.start }} <span>↗</span></div>
+            </a>
+          </template>
         </div>
       </section>
 
