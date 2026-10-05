@@ -22,7 +22,8 @@ useSeoMeta({
   ogType: 'article',
   ogTitle: () => article.value ? `${isFa.value ? article.value.title : article.value.titleEn} | FADAKAR` : 'Article | FADAKAR',
   ogDescription: () => article.value ? (isFa.value ? article.value.excerpt : article.value.excerptEn) : '',
-  author: 'Erfan Fadakar'
+  author: 'Erfan Fadakar (عرفان فداکار)',
+  articleAuthor: 'Erfan Fadakar'
 })
 
 useHead({
@@ -34,11 +35,19 @@ useHead({
         "@type": "Article",
         "headline": isFa.value ? article.value.title : article.value.titleEn,
         "datePublished": article.value.date,
+        "description": isFa.value ? article.value.excerpt : article.value.excerptEn,
         "author": [{
             "@type": "Person",
             "name": "Erfan Fadakar",
-            "url": "https://fadakar.dev"
-        }]
+            "alternateName": "عرفان فداکار",
+            "url": "https://fadakar-dev.ir",
+            "sameAs": ["https://www.linkedin.com/in/erfan-fadakar-207a03320/"],
+            "jobTitle": "Web Developer & Designer"
+        }],
+        "publisher": {
+            "@type": "Organization",
+            "name": "FADAKAR Web Development"
+        }
       }) : '')
     }
   ]

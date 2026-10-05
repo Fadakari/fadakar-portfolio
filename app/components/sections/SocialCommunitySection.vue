@@ -70,7 +70,7 @@
               <p class="card-text">
                 محتوای تصویری، ارتباطات کوتاه‌تر و نگاهی به پشت صحنه زندگی یک توسعه‌دهنده.
               </p>
-              <a href="https://instagram.com/phadakary" target="_blank" rel="noopener noreferrer" class="cta-button">
+              <a href="https://instagram.com/fadakardev" target="_blank" rel="noopener noreferrer" class="cta-button">
                 مشاهده صفحه
               </a>
             </div>

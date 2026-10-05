@@ -42,7 +42,7 @@ const schemaItemList = computed(() => {
   return articles.map((a, index) => ({
     "@type": "ListItem",
     "position": index + 1,
-    "url": `https://fadakar.dev/articles/${a.slug}`
+    "url": `https://fadakar-dev.ir/articles/${a.slug}`
   }))
 })
 

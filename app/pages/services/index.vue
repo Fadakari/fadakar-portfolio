@@ -14,7 +14,12 @@ const scrollToSection = (sectionId: string) => {
 const seoTitle = computed(() => locale.value === 'fa' ? 'خدمات طراحی سایت و توسعه وب | FADAKAR' : 'Web Design & Development Services | FADAKAR')
 const seoDesc = computed(() => locale.value === 'fa' ? 'خدمات حرفه‌ای طراحی و توسعه وب‌سایت، فروشگاه اینترنتی و پلتفرم‌های اختصاصی برای رشد کسب‌وکار شما.' : 'Professional web design and development services for corporate, ecommerce, and custom platforms.')
 
-useSeoMeta({ title: () => seoTitle.value, description: () => seoDesc.value })
+useSeoMeta({ 
+  title: () => seoTitle.value, 
+  description: () => seoDesc.value,
+  keywords: 'خدمات طراحی سایت, طراحی سایت اختصاصی, طراحی فروشگاه اینترنتی, توسعه وب, طراحی پلتفرم, Web Design Services, Custom Web Development',
+  author: 'Erfan Fadakar (عرفان فداکار)'
+})
 useHead({
   script: [
     {
@@ -22,13 +27,17 @@ useHead({
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Web Design and Development",
+        "name": "Web Design and Development Services",
+        "alternateName": "خدمات طراحی سایت و توسعه وب",
         "provider": {
           "@type": "Person",
-          "name": "Erfan Fadakar"
+          "name": "Erfan Fadakar",
+          "alternateName": "عرفان فداکار",
+          "sameAs": "https://www.linkedin.com/in/erfan-fadakar-207a03320/"
         },
-        "serviceType": "Web Development",
-        "areaServed": "Worldwide"
+        "serviceType": ["Web Development", "Web Design", "E-commerce Development", "Custom Software Development", "طراحی سایت"],
+        "areaServed": "Worldwide",
+        "description": "Professional web design and development services for corporate, ecommerce, and custom platforms."
       })
     }
   ]

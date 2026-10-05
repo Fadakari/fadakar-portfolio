@@ -29,7 +29,6 @@ const content = computed(() => locale.value === 'fa' ? {
   workText: 'هدف من این است که طراحی، تجربه کاربری، توسعه، عملکرد و زیرساخت در یک جهت حرکت کنند. ظاهر حرفه‌ای مهم است، اما اگر کاربر نتواند مسیرش را پیدا کند، سایت سریع نباشد، ساختار آن برای سئو مناسب نباشد یا امکاناتش با فرآیند واقعی کسب‌وکار هماهنگ نباشد، ظاهر خوب به تنهایی ارزش زیادی ایجاد نمی‌کند.',
   projectsEyebrow: 'چند ایستگاه از مسیر',
   projects: [
-    { number: '01', title: 'استوک', text: 'یکی از پروژه‌هایی که تجربه محصول واقعی و انتشار عمومی را برایم جدی‌تر کرد؛ پروژه‌ای که فقط یک تمرین باقی نماند.' },
     { number: '02', title: 'Arta-Kala', text: 'کار روی یک محصول وب مدرن با Next.js و درگیری با موضوعاتی مثل API، احراز هویت، کش و ساختار سمت کلاینت و سرور.' },
     { number: '03', title: 'پروژه‌های کسب‌وکاری', text: 'از فروشگاه و سایت‌های خدماتی تا پروژه‌های تخصصی مثل سایت‌های موبایل و کسب‌وکارهای صنعتی؛ جایی که تفاوت نیاز واقعی هر مشتری بیشتر خودش را نشان می‌دهد.' }
   ],
@@ -57,7 +56,6 @@ const content = computed(() => locale.value === 'fa' ? {
   workText: 'My goal is to make design, UX, development, performance and infrastructure move in the same direction. A professional visual identity matters, but if users cannot find their way, the site is slow, its structure is weak for search, or its features do not match the real business workflow, visual polish alone does not create much value.',
   projectsEyebrow: 'A few stops along the way',
   projects: [
-    { number: '01', title: 'Stock', text: 'A project that made real product development and public distribution more tangible for me; it did not remain just an exercise.' },
     { number: '02', title: 'Arta-Kala', text: 'Work on a modern web product with Next.js, including APIs, authentication, caching and client/server architecture.' },
     { number: '03', title: 'Business projects', text: 'From stores and service websites to specialized projects for mobile and industrial businesses, where the differences between real client needs become much clearer.' }
   ],
@@ -86,10 +84,34 @@ onMounted(async () => {
 onUnmounted(() => ScrollTrigger.getAll().forEach((trigger) => trigger.kill()))
 
 useSeoMeta({
-  title: () => locale.value === 'fa' ? 'درباره من | FADAKAR' : 'About Me | FADAKAR',
+  title: () => locale.value === 'fa' ? 'درباره من | عرفان فداکار (Erfan Fadakar)' : 'About Me | Erfan Fadakar',
   description: () => locale.value === 'fa'
-    ? 'درباره سید عرفان حسینی فدکاری، مسیر توسعه وب و نگاه او به طراحی و انتخاب تکنولوژی برای هر کسب‌وکار.'
-    : 'About Seyed Erfan Hosseini Fadakari, his web development journey and his approach to technology and business.'
+    ? 'درباره عرفان فداکار (Erfan Fadakar)، مسیر توسعه وب و نگاه او به طراحی سایت، سئو و انتخاب تکنولوژی برای هر کسب‌وکار.'
+    : 'About Erfan Fadakar, his web development journey and his approach to technology, web design and business.',
+  keywords: 'عرفان فداکار, Erfan Fadakar, درباره عرفان فداکار, طراحی سایت فداکار, توسعه وب فداکار, Fadakar Web Developer, بیوگرافی عرفان فداکار'
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "dateCreated": "2023-01-01T12:00:00+03:30",
+        "dateModified": new Date().toISOString(),
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Erfan Fadakar",
+          "alternateName": "عرفان فداکار",
+          "jobTitle": "Web Developer",
+          "sameAs": [
+            "https://www.linkedin.com/in/erfan-fadakar-207a03320/"
+          ]
+        }
+      })
+    }
+  ]
 })
 </script>
 

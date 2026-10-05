@@ -10,8 +10,12 @@ export default defineNuxtConfig({
     '@nuxtjs/robots'
   ],
 
+  build: {
+    transpile: ['vue-i18n', '@vue/devtools-api']
+  },
+
   site: {
-    url: 'https://fadakar.dev', // Replace with the actual domain if different
+    url: 'https://fadakar-dev.ir', // Replace with the actual domain if different
     name: 'FADAKAR',
     defaultLocale: 'fa'
   },

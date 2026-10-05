@@ -126,9 +126,9 @@ const isDeepScrolled = computed(() => isHome.value && (props.currentSectionIndex
 .hamburger-button .line { position:absolute; left:10px; width:28px; height:3px; background:#fff; border-radius:2px; transition:transform .3s ease,opacity .3s ease; transform-origin:center; }
 .hamburger-button .line1 { top:14px; }.hamburger-button .line2 { top:22px; }.hamburger-button .line3 { top:30px; }
 .main-header.menu-open .line1 { transform:translateY(8px) rotate(45deg); }.main-header.menu-open .line2 { opacity:0; }.main-header.menu-open .line3 { transform:translateY(-8px) rotate(-45deg); }
-.mobile-menu-panel { position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(10,10,20,.95); backdrop-filter:blur(15px); display:flex; justify-content:center; align-items:center; transform:translateX(100%); transition:transform .4s cubic-bezier(.23,1,.32,1); z-index:999; }
+.mobile-menu-panel { position:fixed; border-radius: 50% 0 0 50%; top:0; left:0; width:100%; height:100vh; background:rgba(10,10,20,.95); backdrop-filter:blur(15px); display:flex; justify-content:center; align-items:center; transform:translateX(100%); transition:transform .6s cubic-bezier(.23,1,.32,1); z-index:999; }
 .mobile-nav-links { list-style:none; padding:0; text-align:center; }.mobile-nav-links li { margin-bottom:2rem; }.mobile-nav-links li a { color:#fff; text-decoration:none; font-size:2rem; font-weight:600; }
-.mobile-menu-panel.menu-open { transform:translate(0, -60px); }
+.mobile-menu-panel.menu-open { transform:translate(0, 0px); border-radius: 0; }
 .lang-switcher-container { position:relative; }.lang-btn { background:transparent; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.8); padding:.4rem .8rem; border-radius:.5rem; cursor:pointer; transition:all .3s ease; min-width:50px; }.lang-btn:hover { background:rgba(255,255,255,.05); color:#fff; }
 @media(max-width:1100px){.header-content{padding-left:2rem;padding-right:2rem}.nav-links{gap:1rem}.nav-links li a{font-size:.9rem}.main-header.deep-scrolled .header-content{padding-left:2rem;padding-right:2rem}}
 @media(max-width:768px){.header-content{padding:1rem 1.5rem}.desktop-nav{display:none}.hamburger-button{display:block}}

@@ -85,12 +85,12 @@
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-import projectStockImage from '../../../public/assets/image.webp';
 import projectBioImage from '../../../public/assets/Screenshot 2025-12-01 125428.webp';
 import digitalMenu from '../../../public/assets/-2147483648_-210034.webp';
 import yazdMobile from '../../../public/assets/-2147483648_-210038.webp';
 import pwaApp from '../../../public/assets/pwaApp.webp';
 import steelsara from '../../../public/assets/steelsaraprg.webp';
+import mohafa from '../../../public/assets/Mohafa-project-Erfan-Fadakar.webp';
 
 interface Project {
   id: string;
@@ -108,6 +108,14 @@ const { t } = useI18n();
 const projects = computed<Project[]>(() => [
   {
     id: 'p1',
+    title: t('projects.mohafa_title'),
+    description: t('projects.mohafa_desc'),
+    image: mohafa,
+    tags: ['Vue.Js', 'Nuxt.js', 'TypeScript', 'Tailwind', 'Directus', 'Prisma', 'Nitro', 'SEO', 'MySQL'],
+    liveUrl: 'https://mohafa.com',
+  },
+  {
+    id: 'p2',
     title: t('projects.steelsara_pwa_title'),
     description: t('projects.steelsara_pwa_desc'),
     image: pwaApp,
@@ -115,7 +123,7 @@ const projects = computed<Project[]>(() => [
     liveUrl: 'https://steelsara.com/%D9%85%D8%AD%D8%A7%D8%B3%D8%A8%D9%87-%D8%AF%D9%82%DB%8C%D9%82-%D9%88%D8%B2%D9%86-%D8%A7%D8%B3%D8%AA%DB%8C%D9%84/',
   },
   {
-    id: 'p2',
+    id: 'p3',
     title: t('projects.menu_title'),
     description: t('projects.menu_desc'),
     image: digitalMenu,
@@ -124,7 +132,7 @@ const projects = computed<Project[]>(() => [
     githubUrl: 'https://github.com/Fadakari/nuxt-nitro-motor',
   },
   {
-    id: 'p3',
+    id: 'p4',
     title: t('projects.yazd_title'),
     description: t('projects.yazd_desc'),
     image: yazdMobile,
@@ -132,16 +140,7 @@ const projects = computed<Project[]>(() => [
     liveUrl: 'https://yazd-mobile.ir',
   },
   {
-    id: 'p4',
-    title: t('projects.stock_title'), 
-    description: t('projects.stock_desc'),
-    image: projectStockImage,
-    tags: ['Vue.js', 'Python', 'Flask', 'Kotlin'],
-    liveUrl: 'https://stockdivar.ir',
-    githubUrl: 'https://github.com/Fadakari/stock_app',
-  },
-  {
-    id: 'p6',
+    id: 'p5',
     title: t('projects.steelsara_seo_title'),
     description: t('projects.steelsara_seo_desc'),
     image: steelsara,
