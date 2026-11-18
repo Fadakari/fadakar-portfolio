@@ -3,6 +3,7 @@ import { getArticle as getFallbackArticle } from '../../../../app/data/articles'
 export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
   const config = useRuntimeConfig()
+  const apiKey = config.cockpitApiKey || process.env.COCKPIT_API_KEY || process.env.NUXT_COCKPIT_API_KEY || 'API-aa941dd9ef4b8aca5e553b883725951729be5dd5'
 
   if (!slug) {
     throw createError({ statusCode: 400, statusMessage: 'Slug parameter is required' })
@@ -15,8 +16,9 @@ export default defineEventHandler(async (event) => {
     const headers: Record<string, string> = {
       'Accept': 'application/json'
     }
-    if (config.cockpitApiKey) {
-      headers['api-key'] = config.cockpitApiKey
+    if (apiKey) {
+      headers['api-key'] = apiKey
+      headers['Authorization'] = `Bearer ${apiKey}`
     }
 
     const response = await $fetch<any>(url, {

@@ -183,14 +183,16 @@ const fallbackServices = [
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
+  const apiKey = config.cockpitApiKey || process.env.COCKPIT_API_KEY || process.env.NUXT_COCKPIT_API_KEY || 'API-aa941dd9ef4b8aca5e553b883725951729be5dd5'
 
   try {
     const url = `${config.cockpitApiUrl.replace(/\/$/, '')}/content/items/services`
     const headers: Record<string, string> = {
       'Accept': 'application/json'
     }
-    if (config.cockpitApiKey) {
-      headers['api-key'] = config.cockpitApiKey
+    if (apiKey) {
+      headers['api-key'] = apiKey
+      headers['Authorization'] = `Bearer ${apiKey}`
     }
 
     const response = await $fetch<any>(url, {

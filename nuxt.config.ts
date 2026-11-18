@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     cockpitApiUrl: process.env.COCKPIT_API_URL || 'https://cms.fadakar-dev.ir/api',
-    cockpitApiKey: process.env.COCKPIT_API_KEY || '',
+    cockpitApiKey: process.env.COCKPIT_API_KEY || process.env.NUXT_COCKPIT_API_KEY || 'API-aa941dd9ef4b8aca5e553b883725951729be5dd5',
     public: {
       cockpitBaseUrl: process.env.COCKPIT_BASE_URL || 'https://cms.fadakar-dev.ir'
     }
