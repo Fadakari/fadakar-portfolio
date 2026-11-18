@@ -20,6 +20,14 @@ export default defineNuxtConfig({
     defaultLocale: 'fa'
   },
 
+  runtimeConfig: {
+    cockpitApiUrl: process.env.COCKPIT_API_URL || 'https://cms.fadakar-dev.ir/api',
+    cockpitApiKey: process.env.COCKPIT_API_KEY || '',
+    public: {
+      cockpitBaseUrl: process.env.COCKPIT_BASE_URL || 'https://cms.fadakar-dev.ir'
+    }
+  },
+
   app: {
     head: {
       htmlAttrs: {

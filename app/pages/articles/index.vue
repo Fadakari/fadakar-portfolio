@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { articles } from '~/data/articles'
+import { articles as fallbackArticles } from '~/data/articles'
 
 const { locale } = useLocale()
 const currentSectionIndex = ref(0)
 const query = ref('')
 const activeCategory = ref('all')
+
+const { data: dynamicArticles } = await useAsyncData('articles-cms', () => $fetch('/api/cms/articles'), {
+  default: () => fallbackArticles
+})
+const articles = computed(() => dynamicArticles.value && dynamicArticles.value.length ? dynamicArticles.value : fallbackArticles)
 
 const isFa = computed(() => locale.value === 'fa')
 
@@ -14,13 +19,13 @@ const scrollToSection = (sectionId: string) => {
 }
 const categories = computed(() => [
   { id: 'all', fa: 'همه', en: 'All' },
-  ...Array.from(new Map(articles.map(article => [article.category, article.categoryEn])).entries())
+  ...Array.from(new Map(articles.value.map(article => [article.category, article.categoryEn])).entries())
     .map(([fa, en]) => ({ id: fa, fa, en }))
 ])
 
 const filteredArticles = computed(() => {
   const q = query.value.trim().toLocaleLowerCase()
-  return articles.filter(article => {
+  return articles.value.filter(article => {
     const matchesCategory = activeCategory.value === 'all' || article.category === activeCategory.value
     if (!q) return matchesCategory
     const searchable = [article.title, article.titleEn, article.excerpt, article.excerptEn, article.category, article.categoryEn].join(' ').toLocaleLowerCase()
@@ -28,7 +33,7 @@ const filteredArticles = computed(() => {
   })
 })
 
-const featured = computed(() => articles[0])
+const featured = computed(() => articles.value[0] || fallbackArticles[0])
 const telegramUrl = 'https://t.me/THE_FADAKAR'
 
 useSeoMeta({
@@ -39,7 +44,7 @@ useSeoMeta({
 })
 
 const schemaItemList = computed(() => {
-  return articles.map((a, index) => ({
+  return articles.value.map((a, index) => ({
     "@type": "ListItem",
     "position": index + 1,
     "url": `https://fadakar-dev.ir/articles/${a.slug}`
