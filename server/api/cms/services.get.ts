@@ -184,26 +184,28 @@ const fallbackServices = [
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
 
-  if (!config.cockpitApiKey) {
-    return fallbackServices
-  }
-
   try {
     const url = `${config.cockpitApiUrl.replace(/\/$/, '')}/content/items/services`
+    const headers: Record<string, string> = {
+      'Accept': 'application/json'
+    }
+    if (config.cockpitApiKey) {
+      headers['api-key'] = config.cockpitApiKey
+    }
+
     const response = await $fetch<any>(url, {
-      headers: {
-        'api-key': config.cockpitApiKey,
-        'Accept': 'application/json'
-      },
+      headers,
       timeout: 5000
     })
 
     const items = Array.isArray(response) ? response : (response?.items || response?.data || [])
 
     if (!items || items.length === 0) {
+      console.log('ℹ [CMS Services] دیتابیس خدمات در هاست خالی بود؛ اطلاعات محلی بازگردانده شد.')
       return fallbackServices
     }
 
+    console.log(`✓ [CMS Services] تعداد ${items.length} خدمت با موفقیت از هاست (Cockpit) دریافت شد.`)
     return items.map((item: any) => ({
       title: String(item.title || ''),
       titleEn: String(item.titleEn || item.title || ''),
@@ -214,7 +216,8 @@ export default defineEventHandler(async () => {
       accent: String(item.accent || '#8a2be2'),
       link: String(item.link || '')
     }))
-  } catch (error) {
+  } catch (error: any) {
+    console.log(`ℹ [CMS Services] اتصال به هاست برقرار نشد (${error?.message || 'خطا'})؛ اطلاعات محلی استفاده شد.`)
     return fallbackServices
   }
 })

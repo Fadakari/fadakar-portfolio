@@ -10,20 +10,17 @@ export default defineEventHandler(async (event) => {
 
   const fallback = getFallbackArticle(slug)
 
-  if (!config.cockpitApiKey) {
-    if (!fallback) {
-      throw createError({ statusCode: 404, statusMessage: 'Article not found' })
-    }
-    return fallback
-  }
-
   try {
     const url = `${config.cockpitApiUrl.replace(/\/$/, '')}/content/items/articles`
+    const headers: Record<string, string> = {
+      'Accept': 'application/json'
+    }
+    if (config.cockpitApiKey) {
+      headers['api-key'] = config.cockpitApiKey
+    }
+
     const response = await $fetch<any>(url, {
-      headers: {
-        'api-key': config.cockpitApiKey,
-        'Accept': 'application/json'
-      },
+      headers,
       query: {
         'filter[slug]': slug
       },
@@ -34,10 +31,14 @@ export default defineEventHandler(async (event) => {
     const found = items.find((item: any) => item.slug === slug) || items[0]
 
     if (!found) {
-      if (fallback) return fallback
+      if (fallback) {
+        console.log(`ℹ [CMS Article ${slug}] مقاله در هاست پیدا نشد؛ اطلاعات محلی بازگردانده شد.`)
+        return fallback
+      }
       throw createError({ statusCode: 404, statusMessage: 'Article not found' })
     }
 
+    console.log(`✓ [CMS Article ${slug}] مقاله با موفقیت از هاست (Cockpit) دریافت شد.`)
     return {
       slug: String(found.slug || slug),
       title: String(found.title || ''),
@@ -52,7 +53,8 @@ export default defineEventHandler(async (event) => {
       content: found.content || '',
       contentEn: found.contentEn || found.content || ''
     }
-  } catch (error) {
+  } catch (error: any) {
+    console.log(`ℹ [CMS Article ${slug}] اتصال به هاست برقرار نشد (${error?.message || 'خطا'})؛ اطلاعات محلی استفاده شد.`)
     if (fallback) return fallback
     throw createError({ statusCode: 404, statusMessage: 'Article not found' })
   }
