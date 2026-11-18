@@ -45,7 +45,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       .services-content-reveal.is-visible{opacity:1;transform:none}
 
       /* Dynamically inserted cards need the same global styling as Vue-scoped cards. */
-      .services-page .service-card{--service-accent:#8a2be2;--service-accent-soft:rgba(138,43,226,.12);position:relative;overflow:hidden;transition:background .35s,border-color .35s,box-shadow .35s;transform:none;}
+      .services-page .service-card{--service-accent:var(--accent, #8a2be2);--service-accent-soft:color-mix(in srgb, var(--service-accent) 15%, transparent);position:relative;overflow:hidden;transition:background .35s,border-color .35s,box-shadow .35s;transform:none;}
       .services-page .service-card::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:1;background:radial-gradient(circle at var(--mx,50%) var(--my,35%),var(--service-accent-soft),transparent 42%);transition:opacity .35s}
       .services-page .service-card:hover::before{opacity:1}
       .services-page .service-card:hover{background:linear-gradient(145deg,var(--service-accent-soft),#0e0e13);box-shadow:0 20px 45px rgba(0,0,0,.28),0 0 0 1px color-mix(in srgb,var(--service-accent) 20%,transparent);transform:translateY(-5px)}

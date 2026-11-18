@@ -45,6 +45,10 @@ const messages = {
       phone: 'تماس تلفنی',
       connect: 'شبکه‌های اجتماعی',
     },
+    community: {
+      title: 'فراتر از یک سایت',
+      subtitle: 'در کنار ارائه خدمات توسعه و طراحی وب، یک فضای محتوایی و ارتباطی برای صاحبان کسب‌وکار، کارفرماها و توسعه‌دهنده‌ها ساخته‌ایم.',
+    },
   },
   en: {
     hero: {
@@ -88,20 +92,24 @@ const messages = {
       phone: 'Phone Call',
       connect: 'Social Networks',
     },
+    community: {
+      title: 'Beyond Just a Website',
+      subtitle: 'Alongside web design and development services, we have built a collaborative community and knowledge hub for business owners, clients, and developers.',
+    },
   },
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
+  const { locale } = useLocale()
   const i18n = createI18n({
     legacy: false,
-    locale: 'fa',
+    locale: locale.value || 'en',
     fallbackLocale: 'en',
     messages,
   })
 
   nuxtApp.vueApp.use(i18n)
 
-  const { locale } = useLocale()
   i18n.global.locale.value = locale.value
 
   watch(locale, (nextLocale) => {

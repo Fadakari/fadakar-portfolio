@@ -82,6 +82,13 @@ const copy = computed(() => locale.value === 'fa' ? {
       accent: "#06b6d4",
       link: '/services/demos/custom-system-details'
     },
+    {
+      title: 'تجربه دیجیتال و اتوماسیون هوشمند (AI)',
+      short: 'طراحی مسیرهای هوشمند برای جذب مشتری، پاسخ‌گویی و رشد کسب‌وکار با کمک تکنولوژی‌های جدید.',
+      detail: 'طراحی تجربه کاربر، اتصال هوش مصنوعی به فرآیندهای کسب‌وکار، دستیارهای هوشمند، سیستم‌های پاسخ‌گویی، تولید محتوای خودکار و بهینه‌سازی مسیر تبدیل بازدیدکننده به مشتری.',
+      accent: "#a855f7",
+      link: '/services/demos/digital-experience-details'
+    },
     { title: 'سایت شرکتی و سازمانی', short: 'برای شرکت‌هایی که می‌خواهند اعتبار، خدمات و ساختار کسب‌وکارشان را حرفه‌ای معرفی کنند.', detail: 'ساختار چندصفحه‌ای، معرفی خدمات و تیم، پروژه‌ها، مقالات، فرم‌های ارتباطی، صفحات فرود و معماری قابل توسعه.', link: '/services/demos/corporate-details' },
     { title: 'سایت خدماتی و محلی', short: 'برای کسب‌وکارهایی که مشتری از گوگل، نقشه و جست‌وجوی محلی پیدا می‌کنند.', detail: 'صفحات خدمات هدفمند، اطلاعات تماس، موقعیت، سوالات متداول و ساختار محتوایی مناسب برای جذب مشتری محلی.', link: '/services/demos/local-service-details' },
     { "title": "وب‌سایت رستوران و کافه", "short": "منوی آنلاین، رزرو، معرفی شعب و تجربه‌ای حرفه‌ای برای مشتریان.", "detail": "طراحی سریع و واکنش‌گرا با دیزاین مناسب، معرفی غذاها، اطلاعات شعب، رزرو و اتصال به شبکه‌های اجتماعی.", "accent": "#f59e0b", link: '/services/demos/restaurant-cafe-details' },
@@ -128,6 +135,13 @@ const copy = computed(() => locale.value === 'fa' ? {
       detail: 'Custom dashboards, customer management, workflow automation, third-party integrations, analytics, admin panels and scalable infrastructure built around real business needs.',
       accent: "#06b6d4",
       link: '/services/demos/custom-system-details'
+    },
+    {
+      title: 'Digital Experience & AI Automation',
+      short: 'Smart customer funnels, conversational assistants and intelligent business growth.',
+      detail: 'UX architecture, connecting AI into business workflows, autonomous agents, automated customer support, and conversion rate optimization (CRO).',
+      accent: "#a855f7",
+      link: '/services/demos/digital-experience-details'
     },
     { title: 'Corporate & business website', short: 'For companies that need to present their credibility, services and structure professionally.', detail: 'Multi-page structure, services, team, projects, articles, contact forms, landing pages and a scalable architecture.', link: '/services/demos/corporate-details' },
     { title: 'Local service website', short: 'For businesses that acquire customers through Google and local search.', detail: 'Targeted service pages, contact details, location, FAQs and content structure for local acquisition.', link: '/services/demos/local-service-details' },
@@ -214,7 +228,7 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
         </div>
         <div class="services-grid">
           <template v-for="(service, index) in copy.services" :key="service.title">
-            <NuxtLink v-if="service.link" :to="service.link" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
+            <NuxtLink v-if="service.link" :to="service.link" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', '--service-accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
               <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
               <div class="service-icon" aria-hidden="true"><span></span><span></span><span></span></div>
               <h3>{{ service.title }}</h3>
@@ -223,7 +237,7 @@ const telegramUrl = 'https://t.me/THE_FADAKAR';
               <div class="service-cta">{{ copy.viewDetails }} <span>↗</span></div>
             </NuxtLink>
 
-            <a v-else :href="telegramUrl" target="_blank" rel="noopener noreferrer" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
+            <a v-else :href="telegramUrl" target="_blank" rel="noopener noreferrer" class="service-card" :style="{ '--accent': service.accent || '#8a2be2', '--service-accent': service.accent || '#8a2be2', 'display': 'block', 'text-decoration': 'none' }">
               <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
               <div class="service-icon" aria-hidden="true"><span></span><span></span><span></span></div>
               <h3>{{ service.title }}</h3>

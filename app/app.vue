@@ -5,7 +5,14 @@ const { locale, isRtl } = useLocale()
 
 useSeoMeta({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | عرفان فداکار (Erfan Fadakar)` : 'عرفان فداکار | طراحی سایت و توسعه وب (Erfan Fadakar)';
+    if (!titleChunk) {
+      return locale.value === 'fa'
+        ? 'عرفان فداکار | طراحی سایت و توسعه وب (Erfan Fadakar)'
+        : 'Erfan Fadakar | Web Design & Development (عرفان فداکار)'
+    }
+    return locale.value === 'fa'
+      ? `${titleChunk} | عرفان فداکار`
+      : `${titleChunk} | Erfan Fadakar`
   },
   author: 'Erfan Fadakar (عرفان فداکار)',
   keywords: 'عرفان فداکار, Erfan Fadakar, طراحی سایت فداکار, توسعه وب فداکار, Fadakar Web Design, Fadakar Web Development, طراحی سایت اختصاصی, ساخت پلتفرم و سایت'

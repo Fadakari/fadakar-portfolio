@@ -1,11 +1,10 @@
 <template>
-  <footer class="portfolio-footer">
+  <footer class="portfolio-footer" :dir="isRtl ? 'rtl' : 'ltr'">
     <div class="footer-container">
       <div class="footer-content">
         <p class="footer-text">
-          <!-- از کلید ترجمه استفاده کن، یا متن ثابت بگذار -->
-          <span class="text-fade">Engineered with precision by </span>
-          <a href="https://fadakar-dev.ir" class="brand-name">Erfan Fadakar</a>
+          <span class="text-fade">{{ isRtl ? 'طراحی و توسعه اختصاصی توسط ' : 'Engineered with precision by ' }}</span>
+          <a href="https://fadakar-dev.ir" class="brand-name">{{ isRtl ? 'عرفان فداکار' : 'Erfan Fadakar' }}</a>
         </p>
         <span class="footer-divider"></span>
         <p class="footer-copyright">
@@ -15,6 +14,11 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { useLocale } from '~/composables/useLocale'
+const { isRtl } = useLocale()
+</script>
 
 <style scoped>
 .portfolio-footer {

@@ -60,7 +60,7 @@ useHead({
     <div class="article-shell">
       <div class="back-link-wrapper">
         <NuxtLink to="/articles" class="back-link">
-          <span class="arrow">←</span> {{ isFa ? 'بازگشت به مقالات' : 'Back to articles' }}
+          <span class="arrow">{{ isFa ? '→' : '←' }}</span> {{ isFa ? 'بازگشت به مقالات' : 'Back to articles' }}
         </NuxtLink>
       </div>
 
