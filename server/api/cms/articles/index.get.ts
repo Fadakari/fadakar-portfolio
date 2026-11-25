@@ -16,15 +16,25 @@ export default defineEventHandler(async (event) => {
 
     const response = await $fetch<any>(url, {
       headers,
+      query: {
+        'sort[_created]': -1
+      },
       timeout: 5000
     })
 
-    const items = Array.isArray(response) ? response : (response?.items || response?.data || [])
+    const rawItems = Array.isArray(response) ? response : (response?.items || response?.data || [])
 
-    if (!items || items.length === 0) {
+    if (!rawItems || rawItems.length === 0) {
       console.log('ℹ [CMS Articles] دیتابیس کاکپیت خالی بود؛ اطلاعات محلی بازگردانده شد.')
       return fallbackArticles
     }
+
+    // مرتب‌سازی بر اساس جدیدترین زمان ایجاد (_created) نزولی
+    const items = [...rawItems].sort((a: any, b: any) => {
+      const bTime = Number(b._created) || 0
+      const aTime = Number(a._created) || 0
+      return bTime - aTime
+    })
 
     console.log(`✓ [CMS Articles] تعداد ${items.length} مقاله با موفقیت از هاست (Cockpit) دریافت شد.`)
     return items.map((item: any) => ({

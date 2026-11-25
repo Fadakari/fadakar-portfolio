@@ -20,6 +20,21 @@ if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found' })
 }
 
+const articleHtmlContent = computed(() => {
+  if (!article.value) return ''
+  const raw = isFa.value ? article.value.content : article.value.contentEn
+  if (!raw || Array.isArray(raw)) return raw
+  if (typeof raw === 'string') {
+    return raw
+      .replace(/<p>\s*###\s+(.*?)<\/p>/gi, '<h3>$1</h3>')
+      .replace(/<p>\s*##\s+(.*?)<\/p>/gi, '<h2>$1</h2>')
+      .replace(/<p>\s*#\s+(.*?)<\/p>/gi, '<h2>$1</h2>')
+      .replace(/(?:^|\n)###\s+(.*?)(?=\n|$)/g, '<h3>$1</h3>')
+      .replace(/(?:^|\n)##\s+(.*?)(?=\n|$)/g, '<h2>$1</h2>')
+  }
+  return raw
+})
+
 useSeoMeta({
   title: () => article.value ? `${isFa.value ? article.value.title : article.value.titleEn} | FADAKAR` : 'Article | FADAKAR',
   description: () => article.value ? (isFa.value ? article.value.excerpt : article.value.excerptEn) : '',
@@ -101,7 +116,7 @@ useHead({
           <template v-if="Array.isArray(isFa ? article.content : article.contentEn)">
             <p v-for="paragraph in (isFa ? article.content : article.contentEn)" :key="paragraph">{{ paragraph }}</p>
           </template>
-          <div v-else class="article-rich-text" v-html="isFa ? article.content : article.contentEn"></div>
+          <div v-else class="article-rich-text" v-html="articleHtmlContent"></div>
         </div>
       </article>
 
